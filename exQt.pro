@@ -22,3 +22,4 @@ SUBDIRS += \
 #    model_item  \
     popdown  \
     tree\
+    process\

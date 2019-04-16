@@ -1,3 +1,4 @@
 *.ini
 *.user*
 build*
+*.exe
