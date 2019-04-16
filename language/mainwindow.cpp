@@ -27,6 +27,7 @@ void MainWindow::on_pushButton_clicked()
         qApp->removeTranslator(&translator);
     }
     isTranslate=!isTranslate;
+    QMessageBox::information(this,tr("title"),tr("translated!"));
 }
 
 
