@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    isTranslate = true;
+    translator.load("./test_zh.qm");
 }
 
 MainWindow::~MainWindow()
@@ -19,17 +20,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-#ifdef TEST_MODE
-    QMessageBox::information(this,tr("HINT."),tr("this is some test words."));
-#endif
-
-    if(isTranslate){
-        translator.load("./test_zh.qm");
+    if(!isTranslate){
         qApp->installTranslator(&translator);
     }
     else{
-        bool flag = qApp->removeTranslator(&translator);
-        qDebug()<<flag;
+        qApp->removeTranslator(&translator);
     }
     isTranslate=!isTranslate;
 }

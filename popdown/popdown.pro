@@ -3,11 +3,15 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET =  pop
 DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
 HEADERS += toydialog.h
+
+SOURCES += \
+		    main.cpp\
+		    toydialog.cpp
+
 FORMS += toydialog.ui
-SOURCES += main.cpp toydialog.cpp

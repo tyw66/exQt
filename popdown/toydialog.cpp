@@ -1,6 +1,7 @@
 #include "toydialog.h"
 #include "ui_toydialog.h"
 #include <QMessageBox>
+#include <QPushButton>
 
 ToyDialog::ToyDialog(QWidget *parent) :
     QMainWindow(parent),
@@ -8,7 +9,10 @@ ToyDialog::ToyDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    menu = new QMenu(tr("Library"),ui->pushButton_001);
+    QPushButton *popButton = new QPushButton(tr("This is a  pop button."), this);
+
+
+    menu = new QMenu(tr("Library"),popButton);
     menu->addAction("Library001");
     menu->addAction("Library002");
     menu->addAction("Library003");
@@ -18,12 +22,12 @@ ToyDialog::ToyDialog(QWidget *parent) :
     menu_001->addAction("item002");
     menu->addMenu(menu_001);
 
-    ui->pushButton_001->setMenu(menu);
+    popButton->setMenu(menu);
 
-    ui->pushButton_a->setStatusTip("balabala....");
+    popButton->setStatusTip("balabala....");
 
 
-
+    setCentralWidget(popButton);
 }
 
 ToyDialog::~ToyDialog()

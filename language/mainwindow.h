@@ -25,7 +25,7 @@ private:
     Ui::MainWindow *ui;
 
     QTranslator translator;
-    bool isTranslate=false;
+    bool isTranslate;
 };
 
 #endif // MAINWINDOW_H

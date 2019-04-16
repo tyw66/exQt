@@ -13,7 +13,6 @@ public:
   qint32 m_age;
 };
 
-
 class Person
 {
 public:
@@ -40,9 +39,6 @@ bool Person::parse(const QByteArray &data)
     ss >> m_name >> m_age;
     return true;
 }
-
-
-
 
 
 
