@@ -20,27 +20,25 @@ public:
     ~Widget();
 
 private slots:
-    void testStringModel();
-
-    void testFileModel();
-
-    void testStandardModel();
-
-    void on_pushButton_del_clicked();
-
     void on_pushButton_string_clicked();
 
     void on_pushButton_file_clicked();
 
     void on_pushButton_std_clicked();
 
+    void on_pushButton_del_clicked();
+
+
+private:
+    void initData();
+
 private:
     Ui::Widget *ui;
 
 
-    QStringListModel* string_model;
-    QStandardItemModel* stand_model;
-    QFileSystemModel* file_model;
+    QStringListModel* m_stringModel;
+    QStandardItemModel* m_standardModel;
+    QFileSystemModel* m_fileModel;
 
 };
 

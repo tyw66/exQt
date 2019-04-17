@@ -14,12 +14,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SUBDIRS += \
     abc \
     serialize \
-#    action  \
-#    action1  \
     event  \
-    item  \
     language  \
-#    model_item  \
+    mvc  \
     popdown  \
     tree\
     process\
