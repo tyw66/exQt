@@ -9,10 +9,12 @@ CONFIG(warn_on | c++11)
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    langwidget.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    langwidget.h
 
 FORMS += \
         mainwindow.ui
@@ -20,4 +22,6 @@ FORMS += \
 DESTDIR =$$PWD
 
 TRANSLATIONS +=  \
-	test_zh.ts \
+	zh-cn.ts \
+	en-us.ts \
+	ja-jp.ts

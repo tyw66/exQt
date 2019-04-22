@@ -4,13 +4,14 @@
 
 #include<QDebug>
 
+#include <langwidget.h>
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    isTranslate = true;
-    translator.load("./test_zh.qm");
 }
 
 MainWindow::~MainWindow()
@@ -18,16 +19,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_actionLanguge_triggered()
 {
-    if(!isTranslate){
-        qApp->installTranslator(&translator);
-    }
-    else{
-        qApp->removeTranslator(&translator);
-    }
-    isTranslate=!isTranslate;
-    QMessageBox::information(this,tr("title"),tr("translated!"));
+    LangDialog langDialog;
+    langDialog.exec();
 }
-
-
