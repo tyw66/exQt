@@ -2,19 +2,25 @@
 #include <QPluginLoader>
 #include <QMessageBox>
 #include <QDir>
+#include <QPainter>
+
 
 Mainwindow::Mainwindow(QWidget *parent) : QMainWindow(parent)
 {
+    //初始化
     setWindowTitle(tr("Image"));
-    setGeometry(300,300,1400,865);
+    setGeometry(200,150,1400,865);
 
+    // 加载插件，填充m_interface对象
     if(!loadPlugin()){
         QMessageBox::information(this, "Error","Could not load the plugin.");
         return;
     }
 
-    m_image = QImage(W,H,QImage::Format_RGB32);
-    renderImg(0,0);
+    //重绘
+    m_image = QImage(256,256,QImage::Format_RGB32);
+    m_interface->paintImg(m_image);
+    update();
 }
 
 bool Mainwindow::loadPlugin()
@@ -23,9 +29,9 @@ bool Mainwindow::loadPlugin()
 
     foreach (QString fileName, pluginDir.entryList(QDir::Files)) {
         QPluginLoader pluginLoader(pluginDir.absoluteFilePath(fileName));
-        QObject *plugin = pluginLoader.instance();
+        QObject *plugin = pluginLoader.instance();  //加载
         if(plugin){
-            m_interface = qobject_cast<ImgInterface*>(plugin);
+            m_interface = qobject_cast<ImgInterface*>(plugin);//类型转换
             if(m_interface)
                 return true;
         }
@@ -33,19 +39,6 @@ bool Mainwindow::loadPlugin()
     return false;
 }
 
-void Mainwindow::mouseMoveEvent(QMouseEvent *ev)
-{
-    mouse_posX = ev->x();
-    mouse_posY = ev->y();
-
-    renderImg(mouse_posX, mouse_posY);
-}
-
-void Mainwindow::renderImg(int x, int y)
-{
-    m_interface->paintImg(m_image);
-    update();
-}
 
 void Mainwindow::paintEvent(QPaintEvent *ev)
 {

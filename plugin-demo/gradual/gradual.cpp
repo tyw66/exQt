@@ -24,6 +24,6 @@ void Gradual::paintImg(QImage &img)
 
 }
 
-
 //导出该插件 （插件名，插件类名）
 Q_EXPORT_PLUGIN2(gradual,Gradual)
+
