@@ -20,4 +20,5 @@ SUBDIRS += \
     popdown  \
     tree\
     process\
+    FinancialCalculator
 

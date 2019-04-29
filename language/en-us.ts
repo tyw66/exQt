@@ -4,42 +4,47 @@
 <context>
     <name>LangDialog</name>
     <message>
-        <location filename="langwidget.cpp" line="18"/>
+        <location filename="langwidget.cpp" line="8"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="langwidget.cpp" line="15"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="20"/>
+        <location filename="langwidget.cpp" line="17"/>
         <source>Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="22"/>
+        <location filename="langwidget.cpp" line="19"/>
         <source>Japanese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="26"/>
+        <location filename="langwidget.cpp" line="23"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="27"/>
+        <location filename="langwidget.cpp" line="24"/>
         <source>Cancel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="45"/>
+        <location filename="langwidget.cpp" line="40"/>
         <source>Swith laguage to Chinise.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="50"/>
+        <location filename="langwidget.cpp" line="45"/>
         <source>Swith laguage to Japanese.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="langwidget.cpp" line="55"/>
+        <location filename="langwidget.cpp" line="50"/>
         <source>Swith laguage to English.</source>
         <translation type="unfinished"></translation>
     </message>
