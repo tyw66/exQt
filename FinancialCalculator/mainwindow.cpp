@@ -23,17 +23,28 @@ void MainWindow::on_pushButton_cal_clicked()
     double money = ui->lineEdit_money->text().toDouble();
     int time = ui->lineEdit_time->text().toDouble();
     double rate = ui->lineEdit_rate->text().toDouble();
+    bool singleFlag = ui->checkBox_singleMoney->isChecked();
 
-    double totalCost = 0;
-    double totalMoney = 0;
-
+    //
+    double totalCost = money;
+    double totalMoney = money;
     ui->plainTextEdit_result->clear();
+
+    //初始阶段
+    ui->plainTextEdit_result->appendPlainText(tr("Stage 1 start:"));
+    ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2").arg(money).arg(money));
+
+    //各阶段
     for(int i = 0; i < time; ++i){
-        ui->plainTextEdit_result->appendPlainText(tr("Stage %1:").arg(i+1));
+        ui->plainTextEdit_result->appendPlainText(tr("Stage %1 end:").arg(i+1));
 
-        totalCost += money; //成本
+        totalMoney = totalMoney * (1.0 + rate);
 
-        totalMoney = totalMoney * (1.0 + rate) + money;
+        //如果是多期投的情况 &&
+        if(!singleFlag && i >0){
+            totalCost += money;
+            totalMoney += money;
+        }
 
         ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2").arg(totalCost).arg(totalMoney));
     }

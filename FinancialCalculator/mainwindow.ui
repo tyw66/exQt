@@ -20,30 +20,6 @@
       <property name="verticalSpacing">
        <number>12</number>
       </property>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit_totalCost">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_time"/>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QPushButton" name="pushButton_cal">
-        <property name="text">
-         <string>calculate</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>total cost:</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="statusTip">
@@ -54,48 +30,21 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>stage number:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_rate"/>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>total money:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_money"/>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLineEdit" name="lineEdit_totalMoney">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="lineEdit_totalInterest">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>total interest:</string>
+         <string>total cost:</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
+      <item row="4" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_cal">
+        <property name="text">
+         <string>calculate</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0" colspan="2">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -108,6 +57,69 @@
         </property>
        </spacer>
       </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_money">
+        <property name="text">
+         <string>1000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_totalInterest">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>total money:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_totalCost">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>total interest:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_rate">
+        <property name="text">
+         <string>0.01</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_totalMoney">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_time">
+        <property name="text">
+         <string>12</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>stage number:</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="statusTip">
@@ -115,6 +127,13 @@
         </property>
         <property name="text">
          <string>money per stage:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QCheckBox" name="checkBox_singleMoney">
+        <property name="text">
+         <string>calculate single money</string>
         </property>
        </widget>
       </item>
