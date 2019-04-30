@@ -4,13 +4,11 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="32"/>
         <source>Stage %1:</source>
         <oldsource>Year %1:</oldsource>
         <translation>第%1期：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="38"/>
         <source>totalCost: %1, totalMoney: %2</source>
         <translation>累计投入：%1元，累计收益：%2元</translation>
     </message>
@@ -40,34 +38,84 @@
         <translation>每期收益率：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="107"/>
+        <location filename="mainwindow.ui" line="63"/>
+        <source>1000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="98"/>
+        <source>0.01</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="112"/>
+        <source>12</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="119"/>
         <source>stage number:</source>
         <translation>期数：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="124"/>
+        <location filename="mainwindow.ui" line="136"/>
         <source>calculate single money</source>
         <translation>只算一笔钱，投多期</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="73"/>
+        <location filename="mainwindow.ui" line="77"/>
         <source>total money:</source>
-        <translation>累计收益：</translation>
+        <translation type="unfinished">累计金额：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="87"/>
+        <location filename="mainwindow.ui" line="91"/>
         <source>total interest:</source>
         <translation>累计利息：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="114"/>
+        <location filename="mainwindow.ui" line="126"/>
         <source>&quot;stage&quot; can be &quot;year&quot;,&quot;mouth&quot;..etc.</source>
         <translation>“期”可以是“年”也可以是“月”等等。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="117"/>
+        <location filename="mainwindow.ui" line="129"/>
         <source>money per stage:</source>
         <translation>每期投入（元）：</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="34"/>
+        <source>Stage 1 start:</source>
+        <translation>第1期 开始：</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="35"/>
+        <location filename="mainwindow.cpp" line="51"/>
+        <location filename="mainwindow.cpp" line="58"/>
+        <source>totalCost: %1, totalMoney: %2%3</source>
+        <oldsource>totalCost: %1, totalMoney: %2
+</oldsource>
+        <translation>累计投入：%1元，累计金额：%2元%3</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="39"/>
+        <source>Stage %1 end:</source>
+        <translation>第%1期 结束：</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="42"/>
+        <location filename="mainwindow.cpp" line="57"/>
+        <source>current totalMoney: %1</source>
+        <translation>目前收益：%1</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="48"/>
+        <source>add invest money: %1</source>
+        <translation>再投%1</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="55"/>
+        <source>Last stage:</source>
+        <translation>下一期：</translation>
     </message>
 </context>
 </TS>
