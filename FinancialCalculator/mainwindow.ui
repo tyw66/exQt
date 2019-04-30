@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>763</width>
-    <height>539</height>
+    <width>1035</width>
+    <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -158,7 +158,13 @@
      </layout>
     </item>
     <item>
-     <widget class="QPlainTextEdit" name="plainTextEdit_result"/>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QPlainTextEdit" name="plainTextEdit_result"/>
+      <widget class="QGraphicsView" name="graphicsView"/>
+     </widget>
     </item>
    </layout>
   </widget>

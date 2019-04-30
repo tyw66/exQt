@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_money->setValidator(new QIntValidator(0, 9999999));
     ui->lineEdit_time->setValidator(new QIntValidator(0,999));
     ui->lineEdit_rate->setValidator(new QRegExpValidator(QRegExp("^[0]{1}([.]([0-9]){4})?$")));
+
+    //信号槽
+    connect(ui->pushButton_cal, SIGNAL(clicked()), this, SLOT(onCalculate()));
 }
 
 MainWindow::~MainWindow()
@@ -18,50 +21,70 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_cal_clicked()
+void MainWindow::readInput()
 {
-    double money = ui->lineEdit_money->text().toDouble();
-    int time = ui->lineEdit_time->text().toDouble();
-    double rate = ui->lineEdit_rate->text().toDouble();
-    bool singleFlag = ui->checkBox_singleMoney->isChecked();
+    m_money = ui->lineEdit_money->text().toDouble();
+    m_time = ui->lineEdit_time->text().toInt();
+    m_rate = ui->lineEdit_rate->text().toDouble();
+    m_singleFlag = ui->checkBox_singleMoney->isChecked();
+}
 
-    //
-    double totalCost = money;
-    double totalMoney = money;
+
+
+void MainWindow::onCalculate()
+{
+    readInput();
+
+    double totalCost = 0;           //累计投入
+    double totalMoney = 0;          //累计金额
+    double interest = 0;                //利息
     ui->plainTextEdit_result->clear();
 
-    //初始
-    ui->plainTextEdit_result->appendPlainText(tr("Stage 1 start:"));
-    ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(money).arg(money).arg("\n"));
-
     //各期
-    for(int i = 0; i < time; ++i){
-        ui->plainTextEdit_result->appendPlainText(tr("Stage %1 end:").arg(i+1));
+    for(int i = 0; i < m_time; ++i){
+        ui->plainTextEdit_result->appendPlainText(tr("Stage %1 start:").arg(i+1));
+        //算当期利息
+        interest = totalMoney * m_rate;
+        totalMoney += interest;
+        ui->plainTextEdit_result->appendPlainText(tr("current interest: %1").arg(interest));
 
-        totalMoney = totalMoney * (1.0 + rate);
-        ui->plainTextEdit_result->appendPlainText(tr("current totalMoney: %1").arg(totalMoney));
-
-        //如果是多期投的情况 &&
-        if(!singleFlag && i >0){
-            totalCost += money;
-            totalMoney += money;
-            ui->plainTextEdit_result->appendPlainText(tr("add invest money: %1").arg(money));
+        if(!m_singleFlag){
+            //如果是多笔投的情况
+            totalCost += m_money;
+            totalMoney += m_money;
+            ui->plainTextEdit_result->appendPlainText(tr("add invest money: %1").arg(m_money));
+        }else if(i == 0){
+            //如果是单笔投的情况，只算第一期的本金
+            totalCost += m_money;
+            totalMoney += m_money;
+            ui->plainTextEdit_result->appendPlainText(tr("add invest money: %1").arg(m_money));
         }
 
         ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
     }
 
-    //如果是多期投的情况
-    //最后一期的下一期，为了算最后一期的利息
-    if(!singleFlag){
-        ui->plainTextEdit_result->appendPlainText(tr("Last stage:"));
-        totalMoney = totalMoney * (1.0 + rate);
-        ui->plainTextEdit_result->appendPlainText(tr("current totalMoney: %1").arg(totalMoney));
-        ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
-    }
+
+    //下一期，为了算最后一期的利息
+    ui->plainTextEdit_result->appendPlainText(tr("Last stage:"));
+    interest = totalMoney * m_rate;
+    totalMoney += interest;
+    ui->plainTextEdit_result->appendPlainText(tr("current interest: %1").arg(interest));
+    ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
+
 
     //结果区
     ui->lineEdit_totalCost->setText(QString::number(totalCost, 'f', 2));
     ui->lineEdit_totalMoney->setText(QString::number(totalMoney, 'f', 2));
     ui->lineEdit_totalInterest->setText(QString::number(totalMoney - totalCost, 'f', 2));
+
+    drawChart();
+
+}
+
+
+void MainWindow::drawChart()
+{
+
+
+
 }
