@@ -51,12 +51,14 @@ void MainWindow::on_pushButton_cal_clicked()
         ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
     }
 
+    //如果是多期投的情况
     //最后一期的下一期，为了算最后一期的利息
-    ui->plainTextEdit_result->appendPlainText(tr("Last stage:"));
-    totalMoney = totalMoney * (1.0 + rate);
-    ui->plainTextEdit_result->appendPlainText(tr("current totalMoney: %1").arg(totalMoney));
-    ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
-
+    if(!singleFlag){
+        ui->plainTextEdit_result->appendPlainText(tr("Last stage:"));
+        totalMoney = totalMoney * (1.0 + rate);
+        ui->plainTextEdit_result->appendPlainText(tr("current totalMoney: %1").arg(totalMoney));
+        ui->plainTextEdit_result->appendPlainText(tr("totalCost: %1, totalMoney: %2%3").arg(totalCost).arg(totalMoney).arg("\n"));
+    }
 
     //结果区
     ui->lineEdit_totalCost->setText(QString::number(totalCost, 'f', 2));

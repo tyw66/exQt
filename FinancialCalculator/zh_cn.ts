@@ -60,12 +60,12 @@
     <message>
         <location filename="mainwindow.ui" line="136"/>
         <source>calculate single money</source>
-        <translation>只算一笔钱，投多期</translation>
+        <translation type="unfinished">只投一笔钱，算多期</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="77"/>
         <source>total money:</source>
-        <translation type="unfinished">累计金额：</translation>
+        <translation>累计金额：</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="91"/>
