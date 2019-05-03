@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -81,10 +82,93 @@ void MainWindow::onCalculate()
 
 }
 
+void MainWindow::onShowStatusInfo(double value)
+{
+    ui->statusBar->setStatusTip(QString::number(value));
+}
+
 
 void MainWindow::drawChart()
 {
+    m_scene = new QGraphicsScene(this);
 
+    ui->graphicsView->setScene(m_scene);
+    ui->graphicsView->setBackgroundBrush(QColor(255,255,255,255));
+
+    ////////////////////////////////////////////////
+    double totalCost = 0;           //累计投入
+    double totalMoney = 0;          //累计金额
+    double interest = 0;                //利息
+
+    double xPos = 0, yPos = 0, value = 0;
+    QGraphicsRectItem* item;
+
+
+    foreach (QGraphicsRectItem* item, m_items) {
+        delete item;
+    }
+    m_items.clear();
+
+
+    //各期
+    for(int i = 0; i < m_time; ++i){
+        xPos = 0;
+        yPos = i * (m_HEIGHT+5);
+
+        //add old
+        QGraphicsRectItem* item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,totalMoney,m_HEIGHT);
+        item->setBrush(QBrush(QColor(238,232,213)));
+        item->setToolTip(QString::number(totalMoney));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+        xPos += totalMoney;//
+
+        //算当期利息
+        interest = totalMoney * m_rate;
+        totalMoney += interest;
+
+
+        if(!m_singleFlag){
+            //如果是多笔投的情况
+            totalCost += m_money;
+            totalMoney += m_money;
+
+
+        }else if(i == 0){
+            //如果是单笔投的情况，只算第一期的本金
+            totalCost += m_money;
+            totalMoney += m_money;
+        }
+
+        value = totalMoney;
+
+        //add interset
+
+        item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,interest,m_HEIGHT);
+        item->setToolTip(QString::number(interest));
+        item->setBrush(QBrush(QColor(23,168,26)));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+        //add cost
+        xPos += interest;
+        item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,m_money,m_HEIGHT);
+        item->setToolTip(QString::number(m_money));
+        item->setBrush(QBrush(QColor(253,246,227)));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+    }
+
+
+    //缩放图形 铺满控件
+    double fx = ui->graphicsView->width() / (totalMoney * 1.01) * 1.5;
+    double fy = ui->graphicsView->height() / yPos * 1.1;
+    ui->graphicsView->scale(fx, fy);
 
 
 }
