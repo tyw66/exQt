@@ -12,13 +12,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SUBDIRS += \
-    abc \
-    serialize \
-    event  \
+    Dialogs \
+    EasyNotepad \
+    DragDrop \
+    QFtp \
+    IconEdit \
+    test_of_qDellete \
+    TreadUI \
+
+
+SUBDIRS += \
+    debugSig\
+    delegate\
+    exQmake \
+    FinancialCalculator \
     language  \
-    mvc  \
-    popdown  \
-    tree\
+    model-view  \
+    pathbutton\
+    plugin-demo \
     process\
-    FinancialCalculator
+    thread\
+    tree\
+
 

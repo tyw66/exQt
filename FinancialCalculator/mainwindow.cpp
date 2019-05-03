@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    m_scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(m_scene);
+    ui->graphicsView->setBackgroundBrush(QColor(255,255,255,255));
 
     //限制为数字数入
     ui->lineEdit_money->setValidator(new QIntValidator(0, 9999999));
@@ -21,6 +26,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::onCalculate()
+{
+    readInput();
+
+    calcMoney();
+
+    drawChart();
+}
+
+void MainWindow::onShowStatusInfo(double value)
+{
+    ui->statusBar->setStatusTip(QString::number(value));
+}
+
+
 void MainWindow::readInput()
 {
     m_money = ui->lineEdit_money->text().toDouble();
@@ -29,12 +49,8 @@ void MainWindow::readInput()
     m_singleFlag = ui->checkBox_singleMoney->isChecked();
 }
 
-
-
-void MainWindow::onCalculate()
+void MainWindow::calcMoney()
 {
-    readInput();
-
     double totalCost = 0;           //累计投入
     double totalMoney = 0;          //累计金额
     double interest = 0;                //利息
@@ -76,15 +92,88 @@ void MainWindow::onCalculate()
     ui->lineEdit_totalCost->setText(QString::number(totalCost, 'f', 2));
     ui->lineEdit_totalMoney->setText(QString::number(totalMoney, 'f', 2));
     ui->lineEdit_totalInterest->setText(QString::number(totalMoney - totalCost, 'f', 2));
-
-    drawChart();
-
 }
 
 
 void MainWindow::drawChart()
 {
+    double totalCost = 0;           //累计投入
+    double totalMoney = 0;          //累计金额
+    double interest = 0;                //利息
+    double xPos = 0, yPos = 0;
 
+
+//    foreach (QGraphicsRectItem* item, m_items) {
+//        delete item;
+//    }
+//    m_items.clear();
+    m_scene->clear();
+    ui->graphicsView->repaint();
+
+
+
+    //各期
+    for(int i = 0; i < m_time; ++i){
+        xPos = 0;
+        yPos = i * (m_HEIGHT+5);
+
+        //add old
+        QGraphicsRectItem* item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,totalMoney,m_HEIGHT);
+        item->setBrush(QBrush(QColor(238,232,213)));
+        item->setPen(QPen(Qt::white));
+        item->setToolTip(QString::number(totalMoney));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+        xPos += totalMoney;//
+
+        //算当期利息
+        interest = totalMoney * m_rate;
+        totalMoney += interest;
+
+
+        if(!m_singleFlag){
+            //如果是多笔投的情况
+            totalCost += m_money;
+            totalMoney += m_money;
+
+
+        }else if(i == 0){
+            //如果是单笔投的情况，只算第一期的本金
+            totalCost += m_money;
+            totalMoney += m_money;
+        }
+
+//        double value = totalMoney;
+
+        //add interset
+
+        item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,interest,m_HEIGHT);
+        item->setToolTip(QString::number(interest));
+        item->setBrush(QBrush(QColor(23,168,26)));
+        item->setPen(QPen(Qt::white));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+        //add cost
+        xPos += interest;
+        item = new QGraphicsRectItem();
+        item->setRect(xPos,yPos,m_money,m_HEIGHT);
+        item->setToolTip(QString::number(m_money));
+        item->setBrush(QBrush(QColor(253,246,227)));
+        item->setPen(QPen(Qt::white));
+        m_items.push_back(item);
+        m_scene->addItem(item);
+
+    }
+
+
+    //缩放图形 铺满控件
+    double fx = ui->graphicsView->width() / (totalMoney * 1.01) * 1.5;
+    double fy = ui->graphicsView->height() / yPos * 1.1;
+    ui->graphicsView->scale(fx, fy);
 
 
 }

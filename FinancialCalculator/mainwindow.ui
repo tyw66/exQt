@@ -10,11 +10,17 @@
     <height>434</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Calibri</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,2">
     <item>
      <layout class="QGridLayout" name="gridLayout">
       <property name="verticalSpacing">
@@ -163,7 +169,20 @@
        <enum>Qt::Horizontal</enum>
       </property>
       <widget class="QPlainTextEdit" name="plainTextEdit_result"/>
-      <widget class="QGraphicsView" name="graphicsView"/>
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="backgroundBrush">
+        <brush brushstyle="Dense4Pattern">
+         <color alpha="255">
+          <red>186</red>
+          <green>189</green>
+          <blue>182</blue>
+         </color>
+        </brush>
+       </property>
+       <property name="dragMode">
+        <enum>QGraphicsView::ScrollHandDrag</enum>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
