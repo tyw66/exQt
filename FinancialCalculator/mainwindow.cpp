@@ -8,10 +8,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_scene = new QGraphicsScene(this);
-    ui->graphicsView->setScene(m_scene);
-    ui->graphicsView->setBackgroundBrush(QColor(255,255,255,255));
-
     //限制为数字数入
     ui->lineEdit_money->setValidator(new QIntValidator(0, 9999999));
     ui->lineEdit_time->setValidator(new QIntValidator(0,999));
@@ -26,21 +22,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::onCalculate()
-{
-    readInput();
-
-    calcMoney();
-
-    drawChart();
-}
-
-void MainWindow::onShowStatusInfo(double value)
-{
-    ui->statusBar->setStatusTip(QString::number(value));
-}
-
-
 void MainWindow::readInput()
 {
     m_money = ui->lineEdit_money->text().toDouble();
@@ -49,8 +30,12 @@ void MainWindow::readInput()
     m_singleFlag = ui->checkBox_singleMoney->isChecked();
 }
 
-void MainWindow::calcMoney()
+
+
+void MainWindow::onCalculate()
 {
+    readInput();
+
     double totalCost = 0;           //累计投入
     double totalMoney = 0;          //累计金额
     double interest = 0;                //利息
@@ -92,24 +77,37 @@ void MainWindow::calcMoney()
     ui->lineEdit_totalCost->setText(QString::number(totalCost, 'f', 2));
     ui->lineEdit_totalMoney->setText(QString::number(totalMoney, 'f', 2));
     ui->lineEdit_totalInterest->setText(QString::number(totalMoney - totalCost, 'f', 2));
+
+    drawChart();
+
+}
+
+void MainWindow::onShowStatusInfo(double value)
+{
+    ui->statusBar->setStatusTip(QString::number(value));
 }
 
 
 void MainWindow::drawChart()
 {
+    m_scene = new QGraphicsScene(this);
+
+    ui->graphicsView->setScene(m_scene);
+    ui->graphicsView->setBackgroundBrush(QColor(255,255,255,255));
+
+    ////////////////////////////////////////////////
     double totalCost = 0;           //累计投入
     double totalMoney = 0;          //累计金额
     double interest = 0;                //利息
-    double xPos = 0, yPos = 0;
+
+    double xPos = 0, yPos = 0, value = 0;
+    QGraphicsRectItem* item;
 
 
-//    foreach (QGraphicsRectItem* item, m_items) {
-//        delete item;
-//    }
-//    m_items.clear();
-    m_scene->clear();
-    ui->graphicsView->repaint();
-
+    foreach (QGraphicsRectItem* item, m_items) {
+        delete item;
+    }
+    m_items.clear();
 
 
     //各期
@@ -121,7 +119,6 @@ void MainWindow::drawChart()
         QGraphicsRectItem* item = new QGraphicsRectItem();
         item->setRect(xPos,yPos,totalMoney,m_HEIGHT);
         item->setBrush(QBrush(QColor(238,232,213)));
-        item->setPen(QPen(Qt::white));
         item->setToolTip(QString::number(totalMoney));
         m_items.push_back(item);
         m_scene->addItem(item);
@@ -145,7 +142,7 @@ void MainWindow::drawChart()
             totalMoney += m_money;
         }
 
-//        double value = totalMoney;
+        value = totalMoney;
 
         //add interset
 
@@ -153,7 +150,6 @@ void MainWindow::drawChart()
         item->setRect(xPos,yPos,interest,m_HEIGHT);
         item->setToolTip(QString::number(interest));
         item->setBrush(QBrush(QColor(23,168,26)));
-        item->setPen(QPen(Qt::white));
         m_items.push_back(item);
         m_scene->addItem(item);
 
@@ -163,7 +159,6 @@ void MainWindow::drawChart()
         item->setRect(xPos,yPos,m_money,m_HEIGHT);
         item->setToolTip(QString::number(m_money));
         item->setBrush(QBrush(QColor(253,246,227)));
-        item->setPen(QPen(Qt::white));
         m_items.push_back(item);
         m_scene->addItem(item);
 
