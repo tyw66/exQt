@@ -12,26 +12,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SUBDIRS += \
-    Dialogs \
-    EasyNotepad \
-    DragDrop \
-    QFtp \
-    IconEdit \
-    test_of_qDellete \
-    TreadUI \
-
-
-SUBDIRS += \
-    debugSig\
-    delegate\
-    exQmake \
-    FinancialCalculator \
-    language  \
-    model-view  \
-    pathbutton\
-    plugin-demo \
-    process\
-    thread\
-    tree\
+#    Dialogs \
+#    EasyNotepad \
+#    DragDrop \
+#    QFtp \
+#    IconEdit \
+#    test_of_qDellete \
+#    TreadUI \
+#    debugSig\
+#    delegate\           #委托
+#    exQmake \
+#    FinancialCalculator \
+#    language  \
+#    model-view  \
+#    pathbutton\
+#    plugin-demo \
+#    process\
+#    thread\
+#    tree\
+#    widgets
+#    svg
+    FunPainter
 
 
