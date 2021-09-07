@@ -27,39 +27,39 @@ MainWindow::~MainWindow()
 void MainWindow::initConnectA()
 {
     connect(ui->pushButtonA, SIGNAL(clicked()),this,SLOT(onClickButtonA()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(int)),this,SLOT(onReactA(int)));
+    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactA(QString)));
 }
 
 void MainWindow::onClickButtonA()
 {
-    int id = ui->textEditA->toPlainText().toInt();
+    QString id = ui->textEditA->toPlainText();
     SignalHub::inst()->emitCurrentSelectIDChanged(id);//Qt4
 //    emit Common::inst()->currentSelectIDChanged(id);//Qt5
 
 }
 
-void MainWindow::onReactA(int id)
+void MainWindow::onReactA(const QString &msg)
 {
     ui->textEditA->clear();
-    ui->textEditA->setPlainText(QString::number((id)));
+    ui->textEditA->setPlainText(msg);
 }
 
 //--组件B--
 void MainWindow::initConnectB()
 {
     connect(ui->pushButtonB, SIGNAL(clicked()),this,SLOT(onClickButtonB()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(int)),this,SLOT(onReactB(int)));
+    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactB(QString)));
 }
 
 void MainWindow::onClickButtonB()
 {
-    int id = ui->listWidgetB->currentItem()->text().toInt();
+    QString id = ui->listWidgetB->currentItem()->text();
     SignalHub::inst()->emitCurrentSelectIDChanged(id);
 }
 
-void MainWindow::onReactB(int id)
+void MainWindow::onReactB(const QString& msg)
 {
-    QList<QListWidgetItem*> list = ui->listWidgetB->findItems(QString::number(id),Qt::MatchExactly);
+    QList<QListWidgetItem*> list = ui->listWidgetB->findItems(msg,Qt::MatchExactly);
     ui->listWidgetB->setCurrentRow(-1);//取消选择
     if(!list.isEmpty()){
         ui->listWidgetB->setCurrentItem(list.first());
@@ -70,18 +70,18 @@ void MainWindow::onReactB(int id)
 void MainWindow::initConnectC()
 {
     connect(ui->pushButtonC, SIGNAL(clicked()),this,SLOT(onClickButtonC()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(int)),this,SLOT(onReactC(int)));
+    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactC(QString)));
 }
 
 void MainWindow::onClickButtonC()
 {
-    int id = ui->listWidgetC->currentItem()->text().toInt();
+    QString id = ui->listWidgetC->currentItem()->text();
     SignalHub::inst()->emitCurrentSelectIDChanged(id);
 }
 
-void MainWindow::onReactC(int id)
+void MainWindow::onReactC(const QString &msg)
 {
-    QList<QListWidgetItem*> list = ui->listWidgetC->findItems(QString::number(id),Qt::MatchExactly);
+    QList<QListWidgetItem*> list = ui->listWidgetC->findItems(msg,Qt::MatchExactly);
     ui->listWidgetC->setCurrentRow(-1);//取消选择
     if(!list.isEmpty()){
         ui->listWidgetC->setCurrentItem(list.first());
@@ -93,18 +93,18 @@ void MainWindow::onReactC(int id)
 void MainWindow::initConnectD()
 {
     connect(ui->pushButtonD, SIGNAL(clicked()),this,SLOT(onClickButtonD()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(int)),this,SLOT(onReactD(int)));
+    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactD(QString)));
 }
 
 void MainWindow::onClickButtonD()
 {
-    int id = ui->listWidgetD->currentItem()->text().toInt();
+    QString id = ui->listWidgetD->currentItem()->text();
     SignalHub::inst()->emitCurrentSelectIDChanged(id);
 }
 
-void MainWindow::onReactD(int id)
+void MainWindow::onReactD(const QString& msg)
 {
-    QList<QListWidgetItem*> list = ui->listWidgetD->findItems(QString::number(id),Qt::MatchExactly);
+    QList<QListWidgetItem*> list = ui->listWidgetD->findItems(msg,Qt::MatchExactly);
     ui->listWidgetD->setCurrentRow(-1);//取消选择
     if(!list.isEmpty()){
         ui->listWidgetD->setCurrentItem(list.first());

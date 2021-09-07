@@ -12,8 +12,8 @@ SignalHub::SignalHub(QObject *parent) : QObject(parent)
 
 }
 
-void SignalHub::emitCurrentSelectIDChanged(int id)
+void SignalHub::emitCurrentSelectIDChanged(const QString& msg)
 {
-    emit currentSelectIDChanged(id);
+    emit currentSelectIDChanged(msg);
 }
 

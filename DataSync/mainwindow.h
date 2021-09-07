@@ -23,22 +23,22 @@ private:
 private:
     void initConnectA();    //连接组件A的信号槽
 private slots:
-    void onClickButtonA();  //调用common发信号
-    void onReactA(int id);  //槽函数响应
+    void onClickButtonA();  //调用公用模块发信号
+    void onReactA(const QString &msg);  //槽函数响应
 
     //----B------------------------
 private:
     void initConnectB();
 private slots:
     void onClickButtonB();
-    void onReactB(int id);
+    void onReactB(const QString &msg);
 
     //----C------------------------
 private:
     void initConnectC();
 private slots:
     void onClickButtonC();
-    void onReactC(int id);
+    void onReactC(const QString &msg);
 
 
     //----D------------------------
@@ -46,7 +46,7 @@ private:
     void initConnectD();
 private slots:
     void onClickButtonD();
-    void onReactD(int id);
+    void onReactD(const QString &msg);
 
 
 };
