@@ -1,17 +1,15 @@
 ###########################################
-# tyw66's Qt exercise
+# @tyw66's Qt exercise project
 ###########################################
 TEMPLATE = subdirs
 
 CONFIG += c++11
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which has been marked as deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
+
 DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SUBDIRS += \
+        DataSync \      #界面数据同步
 #    Dialogs \
 #    EasyNotepad \
 #    DragDrop \
@@ -30,8 +28,8 @@ SUBDIRS += \
 #    process\
 #    thread\
 #    tree\
-#    widgets
-#    svg
-    FunPainter
+#    widgets\
+#    svg\
+#    FunPainter\
 
 
