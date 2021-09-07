@@ -47,8 +47,8 @@ void MainWindow::onReactA(const QString &msg)
 //--组件B--
 void MainWindow::initConnectB()
 {
-    connect(ui->pushButtonB, SIGNAL(clicked()),this,SLOT(onClickButtonB()));
-    //    connect(ui->listWidgetB, SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(onClickButtonB()));
+//    connect(ui->pushButtonB, SIGNAL(clicked()),this,SLOT(onClickButtonB()));
+    connect(ui->listWidgetB, SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonB()));
     connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactB(QString)));
 }
 
@@ -73,7 +73,8 @@ void MainWindow::onReactB(const QString& msg)
 //--组件C--
 void MainWindow::initConnectC()
 {
-    connect(ui->pushButtonC, SIGNAL(clicked()),this,SLOT(onClickButtonC()));
+//    connect(ui->pushButtonC, SIGNAL(clicked()),this,SLOT(onClickButtonC()));
+    connect(ui->listWidgetC, SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonC()));
     connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactC(QString)));
 }
 
@@ -99,7 +100,8 @@ void MainWindow::onReactC(const QString &msg)
 //--组件D--
 void MainWindow::initConnectD()
 {
-    connect(ui->pushButtonD, SIGNAL(clicked()),this,SLOT(onClickButtonD()));
+//    connect(ui->pushButtonD, SIGNAL(clicked()),this,SLOT(onClickButtonD()));
+    connect(ui->listWidgetD,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonD()));
     connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactD(QString)));
 }
 
