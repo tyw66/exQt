@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>833</width>
+    <width>840</width>
     <height>531</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" rowspan="3">
+    <item row="0" column="0" rowspan="2">
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
        <string>组件A</string>
@@ -34,7 +34,7 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="3">
+    <item row="0" column="1" rowspan="4">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
        <string>组件B</string>
@@ -89,7 +89,7 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="2" rowspan="3">
+    <item row="0" column="2" rowspan="4">
      <widget class="QGroupBox" name="groupBox_3">
       <property name="title">
        <string>组件C</string>
@@ -162,7 +162,123 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="3">
+    <item row="0" column="3" rowspan="4">
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="title">
+       <string>组件F</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QToolBox" name="toolBox">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="page">
+          <attribute name="label">
+           <string>0</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page1">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>85</width>
+            <height>279</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>1</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>85</width>
+            <height>279</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>2</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>85</width>
+            <height>279</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>3</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>85</width>
+            <height>279</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>4</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page5">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>85</width>
+            <height>279</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>5</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="4" rowspan="4">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5" colspan="2">
+     <widget class="QGroupBox" name="groupBox_7">
+      <property name="title">
+       <string>被动组件1</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QRadioButton" name="radioButton_ji">
+         <property name="text">
+          <string>奇数</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_ou">
+         <property name="text">
+          <string>偶数</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
      <widget class="QGroupBox" name="groupBox_6">
       <property name="title">
        <string>组件D</string>
@@ -178,37 +294,7 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="4" rowspan="3">
-     <widget class="Line" name="line">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="5">
-     <widget class="QGroupBox" name="groupBox_7">
-      <property name="title">
-       <string>被动组件1</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QRadioButton" name="radioButton">
-         <property name="text">
-          <string>奇数</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioButton_2">
-         <property name="text">
-          <string>偶数</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="3">
+    <item row="3" column="0">
      <widget class="QGroupBox" name="groupBox_5">
       <property name="title">
        <string>组件E</string>
@@ -256,96 +342,15 @@
       </layout>
      </widget>
     </item>
-    <item row="1" column="5" rowspan="2">
-     <widget class="QGroupBox" name="groupBox_8">
-      <property name="title">
-       <string>被动组件2</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QToolBox" name="toolBox">
-         <property name="currentIndex">
-          <number>4</number>
-         </property>
-         <widget class="QWidget" name="page1">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>120</width>
-            <height>246</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>1</string>
-          </attribute>
-         </widget>
-         <widget class="QWidget" name="page2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>120</width>
-            <height>246</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>2</string>
-          </attribute>
-         </widget>
-         <widget class="QWidget" name="page3">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>120</width>
-            <height>246</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>3</string>
-          </attribute>
-         </widget>
-         <widget class="QWidget" name="page4">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>120</width>
-            <height>246</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>4</string>
-          </attribute>
-         </widget>
-         <widget class="QWidget" name="page5">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>120</width>
-            <height>246</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>5</string>
-          </attribute>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="2" column="3">
+    <item row="1" column="5" rowspan="3" colspan="2">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
-        <height>361</height>
+        <width>138</width>
+        <height>373</height>
        </size>
       </property>
      </spacer>
