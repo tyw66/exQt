@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>528</height>
+    <width>833</width>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="3">
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
        <string>组件A</string>
@@ -34,7 +34,7 @@
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="0" column="1" rowspan="3">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
        <string>组件B</string>
@@ -89,7 +89,7 @@
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="0" column="2" rowspan="3">
      <widget class="QGroupBox" name="groupBox_3">
       <property name="title">
        <string>组件C</string>
@@ -159,92 +159,198 @@
          </item>
         </widget>
        </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="title">
+       <string>组件D</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
-        <widget class="QPushButton" name="pushButtonC">
-         <property name="text">
-          <string>更新</string>
+        <widget class="QSpinBox" name="spinBox">
+         <property name="maximum">
+          <number>999999</number>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-    <item>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="title">
-       <string>组件D</string>
+    <item row="0" column="4" rowspan="3">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QGroupBox" name="groupBox_7">
+      <property name="title">
+       <string>被动组件1</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QListWidget" name="listWidgetD">
+        <widget class="QRadioButton" name="radioButton">
+         <property name="text">
+          <string>奇数</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="text">
+          <string>偶数</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="title">
+       <string>组件E</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
          <item>
           <property name="text">
            <string>6</string>
           </property>
          </item>
-         <item>
-          <property name="text">
-           <string>7</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>8</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>9</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>10</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>11</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>12</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>13</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>14</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonD">
-         <property name="text">
-          <string>更新</string>
-         </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
+    <item row="1" column="5" rowspan="2">
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="title">
+       <string>被动组件2</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QToolBox" name="toolBox">
+         <property name="currentIndex">
+          <number>4</number>
+         </property>
+         <widget class="QWidget" name="page1">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>120</width>
+            <height>246</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>1</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>120</width>
+            <height>246</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>2</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>120</width>
+            <height>246</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>3</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>120</width>
+            <height>246</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>4</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="page5">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>120</width>
+            <height>246</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>5</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>361</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>592</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

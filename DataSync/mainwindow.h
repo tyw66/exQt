@@ -37,7 +37,7 @@ private slots:
 private:
     void initConnectC();
 private slots:
-    void onClickButtonC();
+    void onChangeListWidget();
     void onReactC(const QString &msg);
 
 
@@ -45,7 +45,7 @@ private slots:
 private:
     void initConnectD();
 private slots:
-    void onClickButtonD();
+    void onChangeSpinBox(const QString& value);
     void onReactD(const QString &msg);
 
 

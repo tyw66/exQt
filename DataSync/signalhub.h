@@ -13,11 +13,11 @@ public:
     static SignalHub* inst();
 
     //for Qt4
-    void emitCurrentSelectIDChanged(const QString& msg);
+    void emitState1Changed(const QString& msg);
 
 signals:
     ///信号1
-    void currentSelectIDChanged(const QString& msg);
+    void state1Changed(const QString& msg);
 
 private:
     explicit SignalHub(QObject *parent = NULL);

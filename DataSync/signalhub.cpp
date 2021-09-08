@@ -9,11 +9,10 @@ SignalHub *SignalHub::inst()
 }
 SignalHub::SignalHub(QObject *parent) : QObject(parent)
 {
-
 }
 
-void SignalHub::emitCurrentSelectIDChanged(const QString& msg)
+void SignalHub::emitState1Changed(const QString& msg)
 {
-    emit currentSelectIDChanged(msg);
+    emit state1Changed(msg);
 }
 

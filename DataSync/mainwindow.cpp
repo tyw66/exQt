@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QDebug>
 #include "signalhub.h"
-#include <QPushButton>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,19 +27,21 @@ MainWindow::~MainWindow()
 void MainWindow::initConnectA()
 {
     connect(ui->pushButtonA, SIGNAL(clicked()),this,SLOT(onClickButtonA()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactA(QString)));
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactA(QString)));
 }
 
 void MainWindow::onClickButtonA()
 {
+    qDebug() << __FUNCTION__;
     QString id = ui->textEditA->toPlainText();
-    SignalHub::inst()->emitCurrentSelectIDChanged(id);//Qt4
-    //    emit Common::inst()->currentSelectIDChanged(id);//Qt5
+    SignalHub::inst()->emitState1Changed(id);//Qt4
+    //    emit Common::inst()->state1Changed(id);//Qt5
 
 }
 
 void MainWindow::onReactA(const QString &msg)
 {
+    qDebug() << __FUNCTION__;
     ui->textEditA->clear();
     ui->textEditA->setPlainText(msg);
 }
@@ -47,79 +49,95 @@ void MainWindow::onReactA(const QString &msg)
 //--组件B--
 void MainWindow::initConnectB()
 {
-//    connect(ui->pushButtonB, SIGNAL(clicked()),this,SLOT(onClickButtonB()));
-    connect(ui->listWidgetB, SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonB()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactB(QString)));
+    connect(ui->pushButtonB, SIGNAL(clicked()),this,SLOT(onClickButtonB()));
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactB(QString)));
 }
 
 void MainWindow::onClickButtonB()
 {
+    qDebug() << __FUNCTION__;
     QString id = "-1";
     if(ui->listWidgetB->currentItem()){
         id = ui->listWidgetB->currentItem()->text();
     }
-    SignalHub::inst()->emitCurrentSelectIDChanged(id);
+    SignalHub::inst()->emitState1Changed(id);
 }
 
 void MainWindow::onReactB(const QString& msg)
 {
+    qDebug() << __FUNCTION__;
+    bool blocked = ui->listWidgetB->blockSignals(true);
+
     QList<QListWidgetItem*> list = ui->listWidgetB->findItems(msg,Qt::MatchExactly);
     ui->listWidgetB->setCurrentRow(-1);//取消选择
     if(!list.isEmpty()){
         ui->listWidgetB->setCurrentItem(list.first());
+
     }
+    ui->listWidgetB->blockSignals(blocked);
 }
 
 //--组件C--
 void MainWindow::initConnectC()
 {
-//    connect(ui->pushButtonC, SIGNAL(clicked()),this,SLOT(onClickButtonC()));
-    connect(ui->listWidgetC, SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonC()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactC(QString)));
+    connect(ui->listWidgetC, SIGNAL(currentTextChanged(QString)),this,SLOT(onChangeListWidget()));
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactC(QString)));
 }
 
-void MainWindow::onClickButtonC()
+void MainWindow::onChangeListWidget()
 {
+    qDebug() << __FUNCTION__;
     QString id = "-1";
     if(ui->listWidgetC->currentItem()){
         id = ui->listWidgetC->currentItem()->text();
     }
-    SignalHub::inst()->emitCurrentSelectIDChanged(id);
+    SignalHub::inst()->emitState1Changed(id);
 }
 
 void MainWindow::onReactC(const QString &msg)
 {
+    qDebug() << __FUNCTION__;
+    bool blocked = ui->listWidgetC->blockSignals(true);
+
     QList<QListWidgetItem*> list = ui->listWidgetC->findItems(msg,Qt::MatchExactly);
     ui->listWidgetC->setCurrentRow(-1);//取消选择
     if(!list.isEmpty()){
         ui->listWidgetC->setCurrentItem(list.first());
     }
+
+    ui->listWidgetC->blockSignals(blocked);
 }
+
 
 
 //--组件D--
 void MainWindow::initConnectD()
 {
-//    connect(ui->pushButtonD, SIGNAL(clicked()),this,SLOT(onClickButtonD()));
-    connect(ui->listWidgetD,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(onClickButtonD()));
-    connect(SignalHub::inst(),SIGNAL(currentSelectIDChanged(QString)),this,SLOT(onReactD(QString)));
+    //发
+    connect(ui->spinBox,SIGNAL(textChanged(QString)),this,SLOT(onChangeSpinBox(QString)));
+    //收
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactD(QString)));
 }
 
-void MainWindow::onClickButtonD()
+void MainWindow::onChangeSpinBox(const QString &value)
 {
-    QString id = "-1";
-    if(ui->listWidgetD->currentItem()){
-        id = ui->listWidgetD->currentItem()->text();
-    }
-    SignalHub::inst()->emitCurrentSelectIDChanged(id);
+    qDebug() << __FUNCTION__;
+    SignalHub::inst()->emitState1Changed(value);
 }
 
-void MainWindow::onReactD(const QString& msg)
+void MainWindow::onReactD(const QString &msg)
 {
-    QList<QListWidgetItem*> list = ui->listWidgetD->findItems(msg,Qt::MatchExactly);
-    ui->listWidgetD->setCurrentRow(-1);//取消选择
-    if(!list.isEmpty()){
-        ui->listWidgetD->setCurrentItem(list.first());
+    qDebug() << __FUNCTION__;
+    bool blocked = ui->spinBox->blockSignals(true);
+
+    bool ok;
+    int value = msg.toInt(&ok, 10);
+    if(ok && ok==true){
+        ui->spinBox->setValue(value);
+    }else{
+        ui->spinBox->clear();
     }
+
+    ui->spinBox->blockSignals(blocked);
 }
 
