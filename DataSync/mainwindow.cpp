@@ -171,8 +171,17 @@ void MainWindow::onReactE(const QString &msg)
 //--组件F--
 void MainWindow::initConnectF()
 {
+    //发
+    connect(ui->toolBox,SIGNAL(currentChanged(int)),this,SLOT(onChangeToolBox(int)));
+
     //收
     connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactF(QString)));
+}
+
+void MainWindow::onChangeToolBox(int index)
+{
+    qDebug() << __FUNCTION__;
+    SignalHub::inst()->emitState1Changed(QString::number(index));
 }
 
 void MainWindow::onReactF(const QString &msg)

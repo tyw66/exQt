@@ -58,6 +58,7 @@ private slots:
 private:
     void initConnectF();
 private slots:
+    void onChangeToolBox(int index);
     void onReactF(const QString &msg);
 
 
