@@ -9,6 +9,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SUBDIRS += \
+    DataStream \
         DataSync \      #界面数据同步
 #    Dialogs \
 #    EasyNotepad \
