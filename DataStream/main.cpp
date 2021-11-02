@@ -20,6 +20,11 @@ struct Body
         output >> body.weight>> body.height;
         return output;
     }
+
+
+   //
+
+
 };
 
 //结构体

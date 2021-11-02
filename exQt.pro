@@ -9,8 +9,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SUBDIRS += \
-    DataStream \
-        DataSync \      #界面数据同步
+  ## DataStream \
+  #      DataSync \      #界面数据同步
 #    Dialogs \
 #    EasyNotepad \
 #    DragDrop \
@@ -31,6 +31,10 @@ SUBDIRS += \
 #    tree\
 #    widgets\
 #    svg\
-#    FunPainter\
+  #  PatternVisitor \
+ #    FunPainter\
+ #   PatternCommand \
+   skin \
+   # xingneng
 
 
