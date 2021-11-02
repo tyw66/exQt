@@ -1,0 +1,2167 @@
+﻿/************************************************************************************
+QSS浅蓝色样式 - 基于lightblue.css
+
+- modified by tyw at 2019/11/14
+
+- 属性最佳书写顺序（参照CSS最佳实践）
+    1、位置属性
+    2、大小边距
+    3、文字相关
+    4、背景边距
+    5、其他
+
+- 使用颜色记录
+    #DDF0FF 淡蓝色 背景、主题
+    #C0DCF2 浅蓝色 边框
+    #B3DDFF 蓝色   比淡蓝略深
+    #EAF7FF 亮蓝色 比淡蓝略浅
+    #336688 蓝黑色 正文文字
+    #0462AE 深蓝色 标题文字
+    #00BB9E 翠绿色 高亮
+    #CCCCCC 浅灰色 边框
+    #FFEE99 黄色 （备选）选中
+
+- 一些改进
+    * 把原来lightblue.css里的写到一起内容按照控件类型分开单独设置
+    * 视觉美化
+    * 一些绝对单位换成了相对单位：px -> em
+    * TODO设想：每一页可以个性设置自己的property/ID的qss，这个文件是共性的。
+
+*************************************************************************************/
+
+/*******************************************************************
+* 共性设置
+********************************************************************/
+*{
+    margin:0px;
+    padding:0px;
+    color:#336688;
+    outline:0px;
+}
+
+*:disabled{
+    color: #CDF;
+}
+
+QWidget{
+    background-color:#DDF0FF;
+}
+
+/*********************
+* 对话框
+**********************/
+QDialog{
+
+}
+
+/*********************
+* 主窗体
+**********************/
+QMainWindow{
+
+}
+
+/*QDockWidget的handle*/
+QMainWindow::separator {
+    width: 3px; /* when vertical */
+    height: 3px; /* when horizontal */
+    background:#C0DCF2;
+}
+
+QMainWindow::separator:hover {
+    background: #00BB9E;
+}
+
+
+/*********************
+* 浮动窗体
+**********************/
+QDockWidget {
+    border: 2px solid #CCC;
+    color:#7AD;
+    font-size:1.2em;
+    font: bold;
+}
+
+QDockWidget::title {
+    text-align: left;
+    padding: 5px 5px;
+    background: transparent;/*#08D*/
+    border-radius:3px;
+    titlebar-close-icon: url(:/stylesheet/close.png);
+    titlebar-normal-icon: url(:/stylesheet/max.png);
+}
+
+/*********************
+* 子窗体
+**********************/
+/*
+QMdiSubWindow{
+    border:1px solid #CCC;
+    border-radius:0px;
+}
+*/
+
+/*********************
+* 标签
+**********************/
+QLabel{
+    background: transparent;
+}
+
+
+/*********************
+* 组合框OK
+**********************/
+QGroupBox{
+    margin-top:0.5em; /*设置上外边距，重要*/
+    border:1px solid #CCC;
+    border-radius:5px;
+    background:transparent;
+}
+
+QGroupBox::title{
+    left:10px;
+    subcontrol-origin:margin;
+    subcontrol-position:top left;
+    margin:0px;
+    padding:0px;
+
+    color:#0462AE;
+    background:#DDF0FF;
+}
+
+QToolBar
+{
+    min-height:40px;
+    background:#DDF0FF;
+    border:1px solid lightgray;
+    border-top:0px solid lightgray;
+}
+
+/*********************
+* 按钮OK
+**********************/
+QPushButton{
+    min-height:1.2em;
+    min-width:32px; /*最小宽度怎么定？*/
+
+    border:1px solid #C0DCF2;
+    background:#EAF7FF;
+}
+
+QToolButton{
+    border:1px solid #DDF0FF;
+    background-color:transparent;
+    /*min-width:20px;*/
+    /*min-height:20px;*/
+    /*margin:0px 2px 2px 0px;*/
+    /*border-radius:0px;*/
+    padding:3px;
+}
+
+QToolButton#qt_toolbar_ext_button
+{
+    border:1px solid black;
+    image:url(:/stylesheet/down.png) top center no-repeat;
+}
+
+.QPushButton:hover,
+.QToolButton:hover{
+    border:1px solid #336688;
+    background-color:#B3DDFF;
+}
+.QPushButton:pressed,
+.QToolButton:pressed{
+    background-color:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);
+}
+.QPushButton::checked,
+.QToolButton::checked{
+    background-color:#FFEB99;
+}
+QToolButton::menu-indicator{
+    image:None;
+/*    subcontrol-position: bottom center;*/
+}
+
+#RibbonHideBtnWidget
+{
+    margin:0px;
+    padding:0px;
+    background: #ddf0ff;
+    border:0px;
+    border-right: 1px solid #C0DCF2;
+    border-bottom: 1px solid #C0DCF2;
+}
+
+#RibbonHideBtn
+{
+min-height:32px;
+max-height:32px;
+min-width:25px;
+max-width:25px;
+margin:0px;
+padding:0px;
+background:#38475e;
+border:0px;
+border-bottom: 1px solid #C0DCF2;
+background-color: #ddf0ff;
+border-radius:0px;
+
+    image:url(:/stylesheet/up.png);
+}
+#RibbonHideBtn::checked
+{
+    image:url(:/stylesheet/down.png);
+}
+
+/*********************
+* 下拉框OK
+**********************/
+QComboBox{
+    min-height:1.1em;
+    border:1px solid #C0DCF2;
+    border-radius:3px;
+    padding:2px;
+    background:#EAF7FF;
+    selection-background-color:#00BB9E;
+    selection-color:#FFFFFF;
+/*    combobox-popup: 0;*/
+}
+
+
+QComboBox::drop-down{
+    subcontrol-origin:content;
+    subcontrol-position:top right;
+    width:15px;
+    top:1px;
+    border-left-width:0px;
+    border-left-style:solid;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+}
+
+QComboBox::down-arrow{
+    image:url(:/stylesheet/add_bottom.png);
+}
+
+QComboBox:focus{
+
+}
+QComboBox:hover{
+    border:1px solid #336688;
+    background:#B3DDFF;
+}
+
+/*********************
+* 单选框OK
+**********************/
+QRadioButton::indicator{
+    background:transparent;
+}
+QRadioButton::indicator{
+    width:0.8em;
+    height:0.8em;
+}
+QRadioButton::indicator::unchecked{
+    image:url(:/stylesheet/radiobutton_unchecked.png);
+}
+QRadioButton::indicator::unchecked:disabled{
+    image:url(:/stylesheet/radiobutton_unchecked_disable.png);
+}
+QRadioButton::indicator::checked{
+    image:url(:/stylesheet/radiobutton_checked.png);
+}
+QRadioButton::indicator::checked:disabled{
+    image:url(:/stylesheet/radiobutton_checked_disable.png);
+}
+
+/*********************
+* 复选框OK
+**********************/
+QCheckBox{
+    background:transparent;
+}
+
+QCheckBox::indicator{
+    width:0.7em;
+    height:0.7em;
+    border:1px solid #C0DCF2;
+}
+
+QCheckBox::indicator:hover{
+    border:1px solid #336688;
+    background:#B3DDFF;
+}
+
+/*********************
+* 菜单
+**********************/
+QMenuBar::item{
+/*    color:#336688;*/
+    background-color:#DEF0FE;
+    margin:0px;
+    padding:3px 10px;
+}
+
+QMenu,QMenuBar,
+QMenu:disabled,QMenuBar:disabled{
+/*    color:#336688;*/
+    background-color:#DEF0FE;
+    border:1px solid #C0DCF2;
+    margin:0px;
+}
+
+QMenu::item{
+    padding:3px 20px;
+}
+
+QMenu::indicator{
+    width:13px;
+    height:13px;
+}
+
+QMenu::item:selected:!disabled,
+QMenuBar::item:selected:!disabled{
+    border:1px solid #336688;
+    background:#B3DDFF;
+}
+
+QMenu::separator{
+    height:1px;
+    background:#C0DCF2;
+}
+
+/*********************
+* 进度条
+**********************/
+/*
+QProgressBar{
+    min-height:10px;
+    min-width:1em;
+    max-height:1em;
+    max-width:15em;
+    background:#DDD;
+    border-radius:5px;
+    text-align:center;
+    border:1px solid #DEF0FE;
+}
+
+QProgressBar:chunk{
+    border-radius:5px;
+    background-color:#66CC22;
+}
+*/
+/*background-color:#66CC22;  #C0DCF2;*/
+
+/*********************
+* 滑杆
+**********************/
+QSlider{
+    background:transparent;
+}
+
+QSlider::groove:horizontal,
+QSlider::groove:vertical{
+    background:#AAA;
+    height:4px;
+    border-radius:4px;
+}
+
+QSlider::handle:horizontal,
+QSlider::handle:vertical{
+    width:1em;
+    margin-top:-3px;
+    margin-bottom:-3px;
+    border-radius:6px;
+    background:#7AD;
+}
+
+QSlider::add-page:horizontal,
+QSlider::add-page:vertical{
+    background:#AAA;
+    height:2px;
+    border-radius:2px;
+}
+
+QSlider::sub-page:horizontal,
+QSlider::sub-page:vertical{
+    background:#7AD;
+    height:4px;
+    border-radius:4px;
+}
+
+QSlider::handle:disabled,
+QSlider::groove:disabled,
+QSlider::sub-page:disabled{
+    background:#CCC;
+}
+QSlider#qxtSpanSlider::sub-page:horizontal{
+    background:rgba(0,0,0,0.1);
+}
+QSlider#qxtSpanSlider::add-page:horizontal{
+    background:rgba(0,0,0,0.1);
+}
+/*********************
+* Tab页控件 OK
+**********************/
+QTabWidget::pane{
+    border:0px;
+    border-top: 1px solid #C0DCF2;
+    border-left: 1px solid #C0DCF2;
+    border-bottom: 1px solid #C0DCF2;
+    selection-background-color:#DAEFFF;
+    alternate-background-color:#F2F9FF;
+    gridline-color:#C0DCF2;
+}
+
+QTabWidget::pane:top{top:-1px;}
+QTabWidget::pane:bottom{bottom:-1px;}
+QTabWidget::pane:left{right:-1px;}
+QTabWidget::pane:right{left:-1px;}
+
+/*QTabBar*/
+QTabBar::tab{
+    min-height:25px;
+    max-height:25px;
+    margin:0px;
+    padding:3px 8px 3px 8px;
+    min-width:5em;
+
+    border:1px solid #C0DCF2;
+    background:#EAF7FF;
+}
+
+QTabBar::tab:selected,
+QTabBar::tab:hover{
+    border-style:solid;
+    border-top-color:#00BB9E;
+    background:#DDF0FF;
+}
+
+/*子情况：标签在上下时*/
+QTabBar::tab:top,
+QTabBar::tab:bottom{
+    padding:3px 8px 3px 8px;
+}
+
+QTabBar::tab:top:selected,
+QTabBar::tab:top:hover{
+    border-width:2px 1px 0px 1px;
+}
+QTabBar::tab:bottom:selected,
+QTabBar::tab:bottom:hover{
+    border-width:0px 1px 2px 1px;
+}
+
+
+/*子情况：标签在左右时*/
+QTabBar::tab:left,
+QTabBar::tab:right{
+    padding:8px 3px 8px 3px;
+}
+QTabBar::tab:left:selected,
+QTabBar::tab:left:hover{
+    border-width:1px 0px 1px 2px;
+}
+QTabBar::tab:right:selected,
+QTabBar::tab:right:hover{
+    border-width:1px 2px 1px 0px;
+}
+
+/*子状态*/
+QTabBar::tab:first:top:selected,
+QTabBar::tab:first:top:hover,
+QTabBar::tab:first:bottom:selected,
+QTabBar::tab:first:bottom:hover{
+    border-left-width:1px;
+    border-left-color:#C0DCF2;
+}
+QTabBar::tab:first:left:selected,
+QTabBar::tab:first:left:hover,
+QTabBar::tab:first:right:selected,
+QTabBar::tab:first:right:hover{
+    border-top-width:1px;
+    border-top-color:#C0DCF2;
+}
+QTabBar::tab:last:top:selected,
+QTabBar::tab:last:top:hover,
+QTabBar::tab:last:bottom:selected,
+QTabBar::tab:last:bottom:hover{
+    border-right-width:1px;
+    border-right-color:#C0DCF2;
+}
+QTabBar::tab:last:left:selected,
+QTabBar::tab:last:left:hover,
+QTabBar::tab:last:right:selected,
+QTabBar::tab:last:right:hover{
+    border-bottom-width:1px;
+    border-bottom-color:#C0DCF2;
+}
+
+
+
+/*********************
+* 滚动区域
+**********************/
+QScrollBar:horizontal{
+    background:#DEF0FE;
+    padding:0px;
+    border-radius:6px;
+    max-height:12px;
+}
+
+QScrollBar::handle:horizontal{
+    background:#C0DCF2;
+    min-width:3em;
+    border-radius:6px;
+}
+
+QScrollBar::handle:horizontal:hover{
+    background:#00BB9E;
+}
+
+QScrollBar::handle:horizontal:pressed{
+    background:#00BB9E;
+}
+
+QScrollBar::add-page:horizontal{
+    background:none;
+}
+
+QScrollBar::sub-page:horizontal{
+    background:none;
+}
+
+QScrollBar::add-line:horizontal{
+    background:none;
+}
+
+QScrollBar::sub-line:horizontal{
+    background:none;
+}
+
+QScrollBar:vertical{
+    background:#DEF0FE;
+    padding:0px;
+    border-radius:6px;
+    max-width:1em;
+}
+
+QScrollBar::handle:vertical{
+    background:#C0DCF2;
+    min-height:50px;
+    border-radius:6px;
+}
+
+QScrollBar::handle:vertical:hover{
+    background:#00BB9E;
+}
+
+QScrollBar::handle:vertical:pressed{
+    background:#00BB9E;
+}
+
+QScrollBar::add-page:vertical{
+    background:none;
+}
+
+QScrollBar::sub-page:vertical{
+    background:none;
+}
+
+QScrollBar::add-line:vertical{
+    background:none;
+}
+
+QScrollBar::sub-line:vertical{
+    background:none;
+}
+
+QScrollArea{
+    border:0px;
+}
+
+
+/*********************
+* QSplitter
+**********************/
+QSplitter::handle{
+    background:#B3DDFF;
+}
+
+QSplitter::handle:horizontal {
+    width: 4px;
+}
+
+QSplitter::handle:vertical {
+    height: 4px;
+}
+
+
+
+/*********************
+* 项视图类
+**********************/
+QListView,
+QTableView::pane{
+    border:1px solid #C0DCF2;
+    selection-background-color:#F2F9FF;
+    selection-color:#336688;
+    alternate-background-color:#DAEFFF;
+    gridline-color:#C0DCF2;
+}
+
+
+QTreeView::branch:closed:has-children{
+    margin:4px;
+    image:url(:/stylesheet/branch_open.png);
+}
+
+QTreeView::branch:open:has-children{
+    margin:4px;
+    image:url(:/stylesheet/branch_close.png);
+}
+
+QTreeView,
+QListView,
+QTableView,
+QTreeView::branch{
+    background:white;
+}
+
+
+QTableView::item:selected,
+QListView::item:selected,
+QTreeView::item:selected{
+    color:#336688;
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+}
+
+QTableView::item:hover,
+QListView::item:hover,
+QTreeView::item:hover,
+QHeaderView{
+    border:1px solid #336688;
+    color:#336688;
+    background:cyan;
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+}
+
+QTableView::item,
+QListView::item,
+QTreeView::item{
+    border:1px solid white;
+    padding:1px;
+    margin:0px;
+}
+
+QHeaderView::section,QTableCornerButton:section{
+    padding:3px;
+    margin:0px;
+    color:#336688;
+    border:1px solid #C0DCF2;
+    border-left-width:0px;
+    border-right-width:1px;
+    border-top-width:0px;
+    border-bottom-width:1px;
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);
+}
+
+QTreeView::branch:selected{
+    border:0px solid #F00;
+}
+
+QTreeWidget::indicator,
+QListWidget::indicator{
+    width:1em;
+    height:1em;
+    border:2px solid #C0DCF2;
+}
+
+/*********************
+* 状态栏
+**********************/
+QStatusBar{
+    background:#C0DCF2;
+    border-radius:3px;
+}
+
+QStatusBar::item{
+    border:1px solid #DEF0FE;
+    border-radius:3px;
+}
+
+/*********************
+* 提示
+**********************/
+QToolTip{
+    border:0px solid #336688;
+    padding:1px;
+/*    color:#336688;*/
+    background:qlineargradient(spread:repeat, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 255), stop:0.688034 rgba(254, 255, 220, 255), stop:1 rgba(255, 252, 223, 255));
+   /* background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);*/
+}
+
+/*********************
+* 工具box
+**********************/
+QToolBox::tab:selected{
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);
+}
+
+
+
+/*********************
+*  输入控件
+**********************/
+QLineEdit,QTextEdit,
+QPlainTextEdit,QSpinBox,
+QDoubleSpinBox,QDateEdit,
+QTimeEdit,QDateTimeEdit{
+    border:1px solid #C0DCF2;
+    border-radius:3px;
+    padding:2px;
+    background:white;
+    selection-background-color:#00BB9E;/*翠绿#00BB9E*/
+    selection-color:#FFFFFF;
+}
+
+QLineEdit:focus,QTextEdit:focus,
+QPlainTextEdit:focus,QSpinBox:focus,
+QDoubleSpinBox:focus,
+QDateEdit:focus,QTimeEdit:focus,
+QDateTimeEdit:focus{
+    border:1px solid #C0DCF2;
+}
+
+
+QLineEdit:hover,QTextEdit:hover,
+QPlainTextEdit:hover,QSpinBox:hover,
+QDoubleSpinBox:hover,
+QDateEdit:hover,QTimeEdit:hover,QDateTimeEdit:hover{
+/*    border:1px solid #C0DCF2;*/
+    border:1px solid #336688;
+}
+
+.QLineEdit,.QTextEdit,
+.QTreeView,.QListView{
+    border:1px solid #C0DCF2;
+    border-radius:3px;
+    padding:2px;
+    background:white;
+    selection-background-color:#00BB9E;
+    selection-color:#FFFFFF;
+}
+
+QDateEdit::drop-down,
+QTimeEdit::drop-down,
+QDateTimeEdit::drop-down{
+    subcontrol-origin:padding;
+    subcontrol-position:top right;
+    width:15px;
+    border-left-width:0px;
+    border-left-style:solid;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-left-color:#C0DCF2;
+}
+
+QTimeEdit::up-button,
+QDateEdit::up-button,
+QDateTimeEdit::up-button,
+QDoubleSpinBox::up-button,
+QSpinBox::up-button{
+    image:url(:/stylesheet/add_top.png);
+    width:10px;
+    height:10px;
+    padding:2px 5px 0px 0px;
+}
+
+QTimeEdit::down-button,
+QDateEdit::down-button,
+QDateTimeEdit::down-button,
+QDoubleSpinBox::down-button,
+QSpinBox::down-button{
+    image:url(:/stylesheet/add_bottom.png);
+    width:10px;
+    height:10px;
+    padding:0px 5px 2px 0px;
+}
+
+QTimeEdit::up-button:pressed,
+QDateEdit::up-button:pressed,
+QDateTimeEdit::up-button:pressed,
+QDoubleSpinBox::up-button:pressed,
+QSpinBox::up-button:pressed{
+    top:-2px;
+}
+
+QTimeEdit::down-button:pressed,
+QDateEdit::down-button:pressed,
+QDateTimeEdit::down-button:pressed,
+QDoubleSpinBox::down-button:pressed,
+QSpinBox::down-button:pressed,
+QSpinBox::down-button:pressed{
+    bottom:-2px;
+}
+
+QLineEdit:disable,
+QTextEdit:disbale,
+QPlainTextEdit:disable,
+QSpinBox:disable,
+QDoubleSpinBox:disable,
+QDateEdit:disable,
+QTimeEdit:disable,
+QDateTimeEdit:disable{
+    color:gray;
+}
+
+/*********************
+*  图片资源路径
+**********************/
+QCheckBox::indicator:unchecked,
+QTreeWidget::indicator:unchecked,
+QListWidget::indicator:unchecked{
+    image:url(:/stylesheet/checkbox_unchecked.png);
+}
+QCheckBox::indicator:unchecked:disabled,
+QGroupBox::indicator:unchecked:disabled,
+QTreeWidget::indicator:unchecked:disabled,
+QListWidget::indicator:disabled{
+    image:url(:/stylesheet/checkbox_unchecked_disable.png);
+}
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked,
+QTreeWidget::indicator:checked,
+QListWidget::indicator:checked{
+    image:url(:/stylesheet/checkbox_checked.png);
+}
+QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled,
+QTreeWidget::indicator:checked:disabled,
+QListWidget::indicator:checked:disabled{
+    image:url(:/stylesheet/checkbox_checked_disable.png);
+}
+
+QCheckBox::indicator:indeterminate,
+QGroupBox::indicator:indeterminate,
+QTreeWidget::indicator:indeterminate,
+QListWidget::indicator:indeterminate{
+    image:url(:/stylesheet/checkbox_parcial.png);
+}
+
+QCheckBox::indicator:indeterminate:disabled,
+QGroupBox::indicator:indeterminate:disabled,
+QTreeWidget::indicator:indeterminate:disabled,
+QListWidget::indicator:indeterminate:disabled{
+    image:url(:/stylesheet/checkbox_parcial_disable.png);
+}
+
+
+/***********************************************************************
+ *
+ * 子代后代的特殊规则设置
+ *
+ **************************************************************************/
+QFileDialog QPushButton{
+    min-width:4em;
+}
+
+QFileDialog QTableView::item,
+QFileDialog QListView::item,
+QFileDialog QTreeView::item,
+QFileDialog QTableView::item:hover,
+QFileDialog QListView::item:hover,
+QFileDialog QTreeView::item:hover,
+QFileDialog QHeaderView{
+    border:0px solid #336688;
+}
+
+QComboBox QAbstractItemView::item{
+    min-height:1em;
+    max-height:1.3em;
+    min-width:1em;
+}
+
+QTableView QLineEdit,
+QTableView QComboBox,
+QTableView QSpinBox,
+QTableView QDoubleSpinBox,
+QTableView QDateEdit,
+QTableView QTimeEdit,
+QTableView QDateTimeEdit{
+    border-width:0px;
+    border-radius:0px;
+}
+
+QTableView QLineEdit:focus,
+QTableView QComboBox:focus,
+QTableView QSpinBox:focus,
+QTableView QDoubleSpinBox:focus,
+QTableView QDateEdit:focus,
+QTableView QTimeEdit:focus,
+QTableView QDateTimeEdit:focus{
+    border-width:0px;
+    border-radius:0px;
+}
+
+
+
+/***********************************************************************
+ *
+ * 属性特殊规则设置
+ *
+ **************************************************************************/
+/*透明控件*/
+/*如果为了布局，引入了中间widget，最好将这类widget设置此属性，使它透明化*/
+QWidget[QSSTransparent="true"]{
+    border:none;
+    background-color:transparent;
+}
+QDockWidget#ToolBar
+{
+        min-height:5.6em;
+        max-height:5.6em;
+}
+QWidget[toolBarWidget="true"]{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    background:#EAF7FF;
+}
+
+QToolButton[RibbonButton="true"]{
+    border:1px solid transparent;
+    background:transparent;
+    min-height:3.25em;
+    max-height:3.25em;
+    min-width:2.2em;
+    max-width:8em;
+    margin:1px 1px 1px 1px;
+    padding:0px;
+
+}
+
+/*
+QToolButton[RibbonButton="true"]::menu-button {
+    border: none;
+    background:transparent;
+    width: 2.2em;
+}
+
+QToolButton[RibbonButton="true"]::menu-indicator {
+    image: none;
+}*/
+
+
+QGroupBox[ribbonBox="true"]{
+    margin: 0px;
+    padding: 1px 2px 9px 2px;
+    border:0px solid #000;
+    border-right: 1px solid #C0DCF2;
+    border-radius:0px;
+}
+
+
+QGroupBox[ribbonBox="true"]::title{
+    subcontrol-origin:margin;
+    subcontrol-position: bottom center;
+    margin:0px;
+    padding:0px;
+    left:0px;
+    color: #738399;
+}
+
+QWidget[ribbonBox="true"]{
+    margin:0px;
+    padding:0px;
+/*    border-left:1px solid #ccc;*/
+    border-right:1px solid #b2cbe0;
+}
+
+/*图形交互区*/
+QWidget[visualToolbar="true"]{
+    margin: 0px;
+    border: 1px;
+    padding: 2px;
+/*    min-height:35px;*/
+    background-color:#EAF7FF;
+}
+QWidget[visualToolbar="true"] QToolButton{
+    border-style:none;
+    min-height:10px;
+    max-height:30px;
+    min-width:10px;
+    max-width:30px;
+    background-color:#EAF7FF;
+}
+QWidget[visualToolbar="true"] QToolButton::checked{
+    background-color:#FFEB99;
+}
+
+QWidget[visualToolbar="true"] QToolButton:disabled{
+    background-color: #DDD;
+}
+
+
+/* 新建装置窗体 */
+QWidget[HomePageNewDeviceItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #DDF0FF;
+    background:#CCE8FF;
+}
+/* 装置窗体 */
+QWidget[HomePageDeviceItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #DDF0FF;
+    background:#CCE8FF;
+
+/*    padding-left: 10px;
+    border-left:5px solid #FF9980;*/
+}
+
+/* 新建实验窗体 */
+QWidget[HomePageNewExpItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #C0DCF2;
+    background:#EAF7FF;
+}
+/* 试验窗体 */
+QWidget[HomePageExprimentItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #C0DCF2;
+    background:#EAF7FF;
+}
+
+/**/
+QPushButton#minimizeButton{
+    image: url(:/stylesheet/Min.png);
+    min-width:1.5em;
+    max-width:1.5em;
+}
+QPushButton#maximizeButton{
+    image: url(:/stylesheet/Max.png);
+    min-width:1.5em;
+    max-width:1.5em;
+}
+QPushButton#closeButton{
+    image: url(:/stylesheet/Close.png);
+    min-width:1.5em;
+    max-width:1.5em;
+}
+
+
+
+
+/*
+QPushButton#standardButton{
+    color:#386487;
+    min-width:5em;
+    border-radius:1px;
+}
+*/
+
+QPushButton[qss="standardButton"]{
+    color:#386487;
+    min-width:5em;
+    border-radius:1px;
+}
+/**主页项目管理窗体qss**/
+/**主页项目管理窗体**/
+QWidget[ProjectManagerWidget="true"]
+{
+    max-width:1920px;
+    margin:2px;
+}
+/*标签：工程、历史记录title*/
+QWidget[ProjectManagerWidget="true"] QLabel#projectLabel,QLabel#recentLabel
+{
+    color:black;
+    font-size:1.1em;
+    min-height:1.1em;
+}
+
+#newButton,#openButton
+{
+    min-height:3em;
+    min-width:3em;
+    max-height:3em;
+    max-width:3em;
+}
+
+QWidget[ProjectManagerWidget="true"] QLabel,QToolButton#recentButton
+{
+    min-width:30em;
+/*        min-height:2.2em;*/
+}
+
+/*无历史记录文本*/
+QWidget[ProjectManagerWidget="true"] QLabel#noRecentLabel
+{
+   color:darkgray;
+   font-size:0.9em;
+}
+/*数值装置、数值实验里的按钮*/
+QWidget[HomeWidget="true"] QWidget#DeviceWidget QToolButton,QWidget#ExperimentWidget QToolButton
+{
+        min-width:25px;
+        min-height:25px;
+	max-width:25px;
+        max-height:25px;
+}
+/**分析页样式设计**/
+/*属性页 应用按钮*/
+QWidget[AnalysispagePropWidget="true"] QPushButton#button_apply
+{
+  border:1px solid #99BBDD;
+  border-radius:3px;
+}
+/*属性页 重绘按钮*/
+QWidget[AnalysispagePropWidget="true"] QPushButton#button_redraw
+{
+  border:1px solid #99BBDD;
+  border-radius:3px;
+}
+QWidget[Logger="true"] QPushButton::checked,QWidget[Logger="true"] QToolButton::checked
+{
+        background-color:transparent;
+}
+
+/****变量显示树形控件****/
+QToolButton#toolButton_ok, QToolButton#toolButton_close
+{
+	min-width:2em;
+}
+/***关于界面***/
+QDialog[AboutWidget="true"] QTextBrowser
+{
+        border:none;
+        background-color:transparent;
+}
+
+/*配置工具向导样式*/
+
+/**顶部窗体**/
+QWidget[MainTopTitleWidget="true"]
+{
+    background:#eaf7ff;
+    color:black;
+    min-height:1.5em;
+    max-height:1.5em;
+
+    border-bottom:1px solid #c0dcf2;
+}
+
+QWidget[MainTopTitleWidget="true"] QPushButton#SettingBtn
+{
+    min-height:1em;
+    max-height:1em;
+    margin:1px;
+    border:1px solid black;
+    border-radius:4px;
+    background:transparent;
+    color:black;
+}
+QWidget[MainTopTitleWidget="true"] QPushButton#SettingBtn:hover
+{
+    font:bold;
+}
+
+/**顶部窗体title**/
+QWidget[MainTopTitleWidget="true"] QLabel#mainTopTitle
+{
+    color:black;
+}
+
+/*最小化、关闭按钮*/
+#MinisizeButton,#CloseButton
+{
+    min-width:22px;
+    min-height:22px;
+    max-width:22px;
+    max-height:22px;
+    margin:0px;
+    padding:0px;
+    border:none;
+    background:transparent;
+}
+#MinisizeButton
+{
+        background-image:url(:/images/minSize.png);
+}
+#CloseButton
+{
+        background-image:url(:/images/close.png);
+}
+#MinisizeButton:hover
+{
+        background-image:url(:/images/minSize_hover.png);
+}
+#CloseButton:hover
+{
+        background-image:url(:/images/close_hover.png);
+}
+
+/**顶部步骤详情窗体**/
+QWidget[MainTopStepInfoWidget="true"]
+{
+    margin:0px;
+    background:#DDF0FF;/*#eaf7ff*/
+    border:0px;
+    border-bottom:1px solid #c0dcf2;
+
+    min-height:80px;
+    max-height:80px;
+}
+
+/**顶部步骤详情窗体文本提示**/
+QWidget[MainTopStepInfoWidget="true"] QLabel#StepsDesLabel
+{
+    color:#4b7796;
+    font:bold;
+}
+
+/**左侧步骤窗体**/
+QWidget[MainLeftWidget="true"]
+{
+    min-width:7.5em;
+    max-width:7.5em;
+    background:#DDF0FF;/*#eaf7ff*/
+    margin:0px;
+    border:0px;
+    border-right:1px solid #c0dcf2;
+}
+
+/**左侧单个步骤窗体**/
+StepWidget
+{
+    outline:0px;
+    height:1.5em;
+    text-align:left;
+    margin:0px;
+    padding:0px;
+    padding-left:20px;
+    border:none;
+    background:transparent;
+}
+
+StepWidget:hover
+{
+    background:transparent;
+    border:0px;
+    padding-top:3px;
+    text-decoration:underline;
+/*
+    background:#3180ae;
+    border-bottom:1px solid green;
+*/
+}
+
+/**左侧单个步骤窗体默认状态**/
+StepWidget[stepState="0"]
+{
+   color:#38475e;
+}
+/**左侧单个步骤窗体活跃状态**/
+StepWidget[stepState="1"]
+{
+    background:#ffffff;
+    color:#ff8400;
+    /*padding-left:15px;*/
+}
+/**左侧单个步骤窗体完成状态**/
+StepWidget[stepState="2"]
+{
+    color:#1890ff;
+}
+
+/*二级节点*/
+StepWidget[level="2"]
+{
+        padding-left:35px;
+}
+/*三级节点*/
+StepWidget[level="3"]
+{
+        padding-left:50px;
+}
+/*二级、三级节点活跃状态*/
+StepWidget[level="2"][stepState="1"],StepWidget[level="3"][stepState="1"]
+{
+        background:lightgray;
+        text-decoration:underline;
+}
+
+/**底部窗体**/
+QWidget[MainBottomWidget="true"]
+{
+    height:44px;
+    spacing:30px;
+    background:white;
+    border:0px;
+    border-top:1px solid #c0dcf2;
+}
+
+/**按钮**/
+QWidget[MainBottomWidget="true"] QPushButton
+{
+    border:0px;
+    border-radius:4px;
+    width:4em;
+    height:1em;
+}
+
+QWidget[MainBottomWidget="true"] QPushButton#BackBtn,
+QPushButton#NextBtn,
+QPushButton#FinishedBtn
+{
+    background:#1296db;
+    color:white;
+}
+QWidget[MainBottomWidget="true"] QPushButton#BackBtn:disabled,QPushButton#NextBtn:disabled
+{
+    background:#bdc3cb;
+}
+
+QWidget[MainBottomWidget="true"] QPushButton#QuitBtn
+{
+    background:#a4b2c3;
+    color:white;
+}
+
+OverViewPage,
+QWidget[AnalysisPage="true"],
+QWidget[MaterialEdit="true"],
+QWidget[InputTemplatePage="true"],
+QWidget[ClipMaterialPage="true"],
+QWidget[DomainConfigPage="true"],
+QWidget[OneClickPublishPage="true"]
+{
+    background:#eaf7ff;
+}
+
+
+QWidget[AnalysisPage="true"] QPushButton,
+QWidget[MaterialEdit="true"] QPushButton,
+QWidget[InputTemplatePage="true"] QPushButton
+{
+/*
+    border-radius:4px;
+    margin-top:5px;
+    margin-right:5px;
+
+    background:#a4b2c3;
+    color:white;
+
+    min-height:25px;
+    max-height:25px;
+
+    min-width:50px;
+    max-width:50px;
+*/
+    margin-top:5px;
+    margin-right:5px;
+    border-radius:4px;
+}
+
+/*
+QWidget[AnalysisPage="true"] QPushButton:disabled,
+QWidget[MaterialEdit="true"] QPushButton:disabled,
+QWidget[InputTemplatePage="true"] QPushButton:disabled
+{
+    background:#bbbbbb;
+}
+*/
+
+
+/*图标*/
+
+/**主页**/
+IconLabel[State="1"]
+{
+        border-image:url(:/images/overviewPage.png);
+}
+/**input编辑页**/
+IconLabel[State="2"]
+{
+        border-image:url(:/images/inputPage.png);
+}
+/**材料编辑页**/
+IconLabel[State="3"]
+{
+        border-image:url(:/images/materialPage.png);
+}
+/**材料剪辑页**/
+IconLabel[State="4"]
+{
+        border-image:url(:/images/materialPage.png);
+}
+/**可视化分析页**/
+IconLabel[State="5"]
+{
+        border-image:url(:/images/analysisPage.png);
+}
+/**领域配置页**/
+IconLabel[State="6"]
+{
+        border-image:url(:/images/domainPage.png);
+}
+/**一键发布页**/
+IconLabel[State="7"]
+{
+        border-image:url(:/images/pulblishPage.png);
+}
+
+/**主页**/
+OverViewPage QLabel#mainLogo
+{
+    min-width:200px;
+    min-height:200px;
+    border-image:url(:/images/main_button.png);
+}
+
+/**主页文字**/
+OverViewPage QLabel#systemNameLabel
+{
+    color:#497695;
+    font-size:34px;
+}
+OverViewPage QLabel#systemDescLabel
+{
+    color:#497695;
+    font-size:16px;
+    font:normal;
+}
+
+
+
+/**表头9fbad7**/
+QHeaderView
+{
+    background:#9fbad7;
+    color:#ffffff;
+}
+
+/**列表**/
+
+QWidget[AnalysisPage="true"] QListView,
+QWidget[AnalysisPage="true"] QTableView,
+QWidget[AnalysisPage="true"] QTreeView,
+QWidget[MaterialEdit="true"] QListView,
+QWidget[MaterialEdit="true"] QTableView,
+QWidget[MaterialEdit="true"] QTreeView
+{
+    margin:2px;
+    border-radius:2px;
+    border:solid 1px #9fbad7;
+    color:#38475e;
+    alternate-background-color: #e4eef9;
+
+
+}
+QWidget[AnalysisPage="true"] QListView::item,
+QWidget[AnalysisPage="true"] QTableView::item,
+QWidget[AnalysisPage="true"] QTreeView::item,
+QWidget[MaterialEdit="true"] QListView::item,
+QWidget[MaterialEdit="true"] QTableView::item,
+QWidget[MaterialEdit="true"] QTreeView::item
+{
+    height:28px;
+    background:transparent;
+    padding-left:10px;
+}
+
+QWidget[AnalysisPage="true"] QListView::item:hover,
+QWidget[AnalysisPage="true"] QTableView::item:hover,
+QWidget[AnalysisPage="true"] QTreeView::item:hover,
+QWidget[MaterialEdit="true"] QListView::item:hover,
+QWidget[MaterialEdit="true"] QTableView::item:hover,
+QWidget[MaterialEdit="true"] QTreeView::item:hover
+{
+    background: rgba(159,186,215,60%);
+}
+QWidget[AnalysisPage="true"] QListView::item:selected,
+QWidget[AnalysisPage="true"] QTableView::item:selected,
+QWidget[AnalysisPage="true"] QTreeView::item:selected,
+QWidget[AnalysisPage="true"] QTreeView::branch:selected,
+QWidget[MaterialEdit="true"] QListView::item:selected,
+QWidget[MaterialEdit="true"] QTableView::item:selected,
+QWidget[MaterialEdit="true"] QTreeView::item:selected,
+QWidget[MaterialEdit="true"] QTreeView::branch:selected
+{
+    background: rgba(159,186,215,90%);
+}
+
+QWidget[AnalysisPage="true"] QLabel#xmlPathLabel,
+QWidget[MaterialEdit="true"] QLabel#MatrtialFileLabel,
+QWidget[InputTemplatePage="true"] QLabel#jsonLabel
+{
+    margin-top:5px;
+    margin-left:5px;
+    color:#497695;
+}
+/*
+QToolButton[RibbonButton="true"]{
+    width: 100px;
+}*/
+
+/* 按钮图标控制 */
+/* 页面工具栏图标大小45*45 */
+/* 图形区图标大小28*28 */
+
+
+/* 图形区域的图标 */
+
+QToolButton[GraphicToolBarMove="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/move.png);
+}
+
+QToolButton[GraphicToolBarRefresh="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Refresh.png);
+}
+
+QToolButton[GraphicToolBarFit="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Fit.png);
+}
+
+QToolButton[GraphicToolBarView_Top="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Top.png);
+}
+
+QToolButton[GraphicToolBarView_Bottom="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Bottom.png);
+}
+
+QToolButton[GraphicToolBarView_Front="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Front.png);
+}
+
+QToolButton[GraphicToolBarView_Back="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Back.png);
+}
+
+QToolButton[GraphicToolBarView_Left="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Left.png);
+}
+
+QToolButton[GraphicToolBarView_Right="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View_Right.png);
+}
+
+QToolButton[GraphicToolBarView_Isometric="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Isometric.png);
+}
+
+QToolButton[GraphicToolBarOrtho_Perspective="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Ortho_Perspective.png);
+}
+
+QToolButton[GraphicToolBarSwitchFacebody="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/SwitchFaceBody.png);
+}
+
+QToolButton[GraphicToolBarZoom_In="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Zoom_In.png);
+}
+
+QToolButton[GraphicToolBarZoom_Out="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Zoom_Out.png);
+}
+
+QToolButton[GraphicToolBarZoom_rectangle="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Zoom_rectangle.png);
+}
+
+QToolButton[GraphicToolBarSetViewCenter="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/SetViewCenter.png);
+}
+
+QToolButton[GraphicToolBarLineout="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/LineOut.png);
+}
+
+QToolButton[GraphicToolBarClear_Object="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Clear_Object.png);
+}
+
+QToolButton[GraphicToolBarSelection_Tool="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Selection_Tool.png);
+}
+
+QToolButton[GraphicToolBarOperator="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Operator.png);
+}
+
+QToolButton[GraphicToolBarSaveImages="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/SaveImages.png);
+}
+
+QToolButton[GraphicToolBarGeometry_Option="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Geometry_Option.png);
+}
+
+QToolButton[GraphicToolBarMesh_Option="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Mesh_Option.png);
+}
+
+QToolButton[GraphicToolBarOption="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Option.png);
+}
+
+QToolButton[GraphicToolBarColortable="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Colortable.png);
+}
+
+QToolButton[GraphicToolBarView="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/View.png);
+}
+
+QToolButton[GraphicToolBarText_Label="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Text_Label.png);
+}
+
+QToolButton[GraphicToolBarPick_Point="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Point.png);
+}
+
+QToolButton[GraphicToolBarPick_Edge="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Edge.png);
+}
+
+QToolButton[GraphicToolBarPick_Face="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Face.png);
+}
+
+QToolButton[GraphicToolBarPick_Entity="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Entity.png);
+}
+
+QToolButton[GraphicToolBarPick_Node="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Node.png);
+}
+
+QToolButton[GraphicToolBarPick_Zone="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Zone.png);
+}
+
+QToolButton[GraphicToolBarPick_Tool="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Pick_Tool.png);
+}
+
+QToolButton[GraphicToolBarSelect_by_sphere="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Select_By_Sphere.png);
+}
+
+QToolButton[GraphicToolBarSpeed_Mode="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Speed_Mode.png);
+}
+
+QToolButton[GraphicToolBarShow_Grid="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Show_Grid.png);
+}
+
+QToolButton[GraphicToolBarExtremumMinLabel="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/ExtremumMinLabel.png);
+}
+
+QToolButton[GraphicToolBarExtremumMaxLabel="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/ExtremumMaxLabel.png);
+}
+
+QToolButton[GraphicToolBarRuler="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Ruler.png);
+}
+
+QToolButton[GraphicToolBarExtreme_Values="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Extreme_Values.png);
+}
+
+QToolButton[GraphicToolBarHight_Light="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Hight_Light.png);
+}
+
+QToolButton[GraphicToolBarLighting="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Lighting.png);
+}
+
+QToolButton[GraphicToolBarShadow="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Shadow.png);
+}
+
+QToolButton[GraphicToolBarViewport2="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Viewport_2.png);
+}
+
+QToolButton[GraphicToolBarViewport4="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/Graphic/Viewport_4.png);
+}
+
+/*信息输出区*/
+QToolButton[toolButtonClear_LogDelet="true"]{
+    image: url(:/stylesheet/Graphic/Log_Delet.png);
+}
+
+QToolButton[toolButtonDebug_LogDebug="true"]{
+    image: url(:/stylesheet/Graphic/Log-debug.png);
+}
+
+
+/*主页工具栏*/
+
+QToolButton[preFerence="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/preference.png);
+}
+
+QToolButton[plugins="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/plug.png);
+}
+
+QToolButton[about="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/about.png);
+}
+
+QToolButton[newPost="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/newpost.png);
+}
+
+QToolButton[open="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/open.png);
+}
+
+QToolButton[homesave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/save.png);
+}
+
+QToolButton[saveas="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/saveas.png);
+}
+
+QToolButton[homecloseProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/closeproject.png);
+}
+
+QToolButton[taskmanager="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/homepage/taskmanager.png);
+    width: 100px;
+}
+
+/*建模页工具栏*/
+QToolButton[importgeom="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/importgeom.png);
+    width: 80px;
+}
+
+QToolButton[exportgeom="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/exportgeom.png);
+    width: 80px;
+}
+
+QToolButton[addentity="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/addentity.png);
+}
+
+QToolButton[removeentity="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/removeentity.png);
+}
+
+QToolButton[ModelPage_importAction="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/Import.png)
+}
+
+QToolButton[ModelPage_exportAction="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/Export.png)
+}
+
+QToolButton[ModelPage_save="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/save.png);
+}
+
+QToolButton[ModelPage_closeProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/modelpage/closeproject.png);
+}
+
+/*模拟页工具栏*/
+
+QToolButton[contact="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/contact.png);
+}
+
+QToolButton[remove="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/remove.png);
+}
+
+QToolButton[jobmanager="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/jobmanager.png);
+    width: 80px;
+}
+
+QToolButton[exchange="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/exchange.png);
+}
+
+QToolButton[importitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/importitem.png);
+    width: 80px;
+}
+
+QToolButton[exportitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/exportitem.png);
+    width: 80px;
+}
+
+QToolButton[selectitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/selectitem.png);
+    width: 80px;
+}
+
+QToolButton[addmesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/addmesh.png);
+}
+
+QToolButton[deletemesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/deletemesh.png);
+}
+
+QToolButton[check="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/check.png);
+    width: 80px;
+}
+
+QToolButton[generatemesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/generatemesh.png);
+}
+
+QToolButton[exportmesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/exportmesh.png);
+}
+
+QToolButton[encryption="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/encryption.png);
+}
+
+QToolButton[meshin="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/meshin.png);
+}
+
+QToolButton[meshout="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/meshout.png);
+}
+
+QToolButton[runprocess="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/runprocess.png);
+    width: 80px;
+}
+
+QToolButton[task="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/task.png);
+    width: 80px;
+}
+
+QToolButton[jumpanalysis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/jumpanalysis.png);
+}
+
+QToolButton[import="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/import.png);
+}
+
+QToolButton[export="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/export.png);
+}
+
+QToolButton[SimulationPage_modelsave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/save.png);
+}
+
+QToolButton[SimulationPage_modelcloseProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/simulatepage/closeproject.png);
+}
+
+/*分析页工具栏*/
+
+QToolButton[AnalysisPage_ButtonOpenFile="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Open.png);
+}
+
+QToolButton[AnalysisPage_ButtonReOpenFile="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/ReOpen.png);
+    width: 80px;
+}
+
+QToolButton[AnalysisPage_ButtonDBInfo="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/DatabseInfo.png);
+}
+
+QToolButton[AnalysisPage_ButtonDataExport="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/FileExport.png);
+    width: 80px;
+}
+
+QToolButton[AnalysisPage_ButtonExportPreset="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Save.png);
+    width: 100px;
+}
+
+QToolButton[AnalysisPage_ButtonAddVismode="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/AddFolder.png);
+}
+
+QToolButton[AnalysisPage_ButtonAddPlot="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Plot.png);
+}
+
+QToolButton[AnalysisPage_ButtonAddOperator="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Operator.png);
+}
+
+QToolButton[AnalysisPage_ButtonDelete="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Remove.png);
+}
+
+QToolButton[AnalysisPage_ButtonImportVis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Import.png);
+}
+
+QToolButton[AnalysisPage_ButtonExportVis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Export.png);
+}
+
+QToolButton[AnalysisPage_ButtonExpression="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Expression.png);
+}
+
+QToolButton[AnalysisPage_ButtonQuery="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Query.png);
+}
+
+QToolButton[AnalysisPage_ButtonQueryAdvance="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/QueryAdvancedVis.png);
+    width: 80px;
+}
+
+QToolButton[AnalysisPage_ButtonSave_Images="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/SaveImages.png);
+    width: 80px;
+}
+
+QToolButton[AnalysisPage_ButtonSave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Save.png);
+}
+
+QToolButton[AnalysisPage_ButtonQuit="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/stylesheet/analysisPage/Close.png);
+}
+

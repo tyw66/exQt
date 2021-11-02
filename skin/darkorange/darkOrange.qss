@@ -1,0 +1,1522 @@
+/*=====================================================================*/
+/* author:tyw                                                          */
+/* update:2020.10                                                      */
+/*=====================================================================*/
+
+/*=====================================================================*/
+/*common*/
+/*=====================================================================*/
+*{
+    margin:0px;
+    padding:0px;
+    outline:0px;
+    color:#FFFFFF;
+}
+
+*:disabled{
+    /*background-color: #8D8D8D;*/
+    color: #888;
+}
+
+QWidget{
+    background:#54575B;
+    /*background: #464646;*/
+}
+QDialog{
+}
+
+/*=====================================================================*/
+/*QMainWindow*/
+/*=====================================================================*/
+QMainWindow{
+
+}
+QMainWindow::separator {
+    width: 3px; /* when vertical */
+    height: 3px; /* when horizontal */
+    background:#242A28;
+}
+QMainWindow::separator:hover {
+    background: #E5D475;
+}
+
+/*=====================================================================*/
+/*QMdiSubWindow*/
+/*=====================================================================*/
+QMdiSubWindow{
+    border:1px solid #242A28;
+    border-radius:0px;
+}
+
+
+
+/*********************
+* 浮动窗体
+**********************/
+QDockWidget {
+    border: 2px solid #CCC;
+    color:#FFF;
+    font-size:1.2em;
+    font: bold;
+}
+
+QDockWidget::title {
+    text-align: left;
+    padding: 5px 5px;
+    background: transparent;/*#08D*/
+    border-radius:3px;
+    titlebar-close-icon: url(:/qss/resource/skin/lightblue/Close.png);
+    titlebar-normal-icon: url(:/qss/resource/skin/lightblue/Max.png);
+}
+
+
+/*=====================================================================*/
+/*QGroupBox*/
+/*=====================================================================*/
+QGroupBox{
+    margin-top:0.5em;
+    border:1px solid #242A28;
+    border-radius:4px;
+    background:transparent;
+}
+QGroupBox::title{
+    left:10px;
+    subcontrol-origin:margin;
+    subcontrol-position:top left;
+    margin:0px;
+    padding:0px;
+    color:#FEFFAB;
+    background:#54575B;
+}
+
+/*=====================================================================*/
+/*QMenuBar*/
+/*=====================================================================*/
+QMenuBar{
+
+}
+
+QMenuBar::item{
+    padding:3px 10px;
+}
+
+QMenuBar::item:selected{
+    border:1px solid #242A28;
+	color:#000000;
+    background:#F8CE72;
+}
+
+/*=====================================================================*/
+/*QMenu*/
+/*=====================================================================*/
+QMenu,QMenu:disabled{
+	border:1px solid #242A28;
+    margin:0px;
+}
+
+QMenu::item:selected{
+    border:1px solid #242A28;
+	color:#000000;
+    background:#F8CE72;
+}
+
+QMenu::item{
+    padding:3px 20px;
+}
+
+QMenu::indicator{
+    width:13px;
+    height:13px;
+}
+QMenu::separator{
+    height:1px;
+    background:#242A28;
+}
+
+
+/*=====================================================================*/
+/*QPushButton*/
+/*=====================================================================*/
+QPushButton{
+    min-height:1.2em;
+    min-width:80px; /*×îÐ¡¿í¶ÈÔõÃŽ¶š£¿*/
+    
+    background:#6A6E73;
+    border: 1px solid #242A28;
+    /*
+    border: 1px solid #353535;
+    padding: 2px;
+    border-radius: 5px;
+    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #4D4D4D,stop:1 #383838);*/
+}
+QPushButton:hover{
+    border:1px solid #242A28;
+    color:#000000;
+    background:#F8CE72;
+}
+QPushButton:pressed{
+    color:#000000;
+    background:#FFB56B;
+}
+QPushButton:checked{
+    color:#000000;
+    background:#FFB56B;
+}
+
+QPushButton:default{
+    border:2px solid #242A28;
+}
+
+/*=====================================================================*/
+/*QToolButton*/
+/*=====================================================================*/
+QToolButton{
+    min-height:1.2em;
+    border:1px solid #242A28;
+    color:#FFFFFF;
+    background:#6A6E73;
+}
+QToolButton:checked{
+    background:#FFB56B;
+}
+
+.QToolButton:hover{
+    border:1px solid #242A28;
+    color:#000000;
+    background-color:#F8CE72;
+}
+
+.QToolButton:pressed{
+    border:1px solid #242A28;
+    color:#000000;
+    background-color:#FFB56B;
+}
+
+.QToolButton:disabled{
+    border:1px solid #54575B;
+}
+
+QToolButton::menu-indicator{
+    image:None;
+}
+
+QToolButton:default{
+    border:2px solid #242A28;
+}
+
+
+/*=====================================================================*/
+/*QLabel*/
+/*=====================================================================*/
+QLabel{
+    color: #FFFFFF;
+        background: transparent;
+}
+
+
+/*=====================================================================*/
+/*Input widgets*/
+/*=====================================================================*/
+QLineEdit,QTextEdit,QPlainTextEdit,QSpinBox,
+QDoubleSpinBox,QDateEdit,QTimeEdit,QDateTimeEdit{
+    border:1px solid #242A28;
+    border-radius:1px;
+    padding:2px;
+    background:#FDFDFD;
+        color:#000000;
+    selection-background-color:#F8CE72;
+    selection-color:#000000;
+}
+
+QLineEdit:focus,QTextEdit:focus,
+QPlainTextEdit:focus,QSpinBox:focus,
+QDoubleSpinBox:focus,
+QDateEdit:focus,QTimeEdit:focus,
+QDateTimeEdit:focus{
+    border:1px solid #F8CE72; /*µÃµœœ¹µã*/
+}
+
+QLineEdit:hover,QTextEdit:hover,
+QPlainTextEdit:hover,QSpinBox:hover,
+QDoubleSpinBox:hover,
+QDateEdit:hover,QTimeEdit:hover,QDateTimeEdit:hover{
+    border:1px solid #F8CE72;
+}
+
+/*=====================================================================*/
+/*QComboBox*/
+/*=====================================================================*/
+QComboBox{
+    border:1px solid #242A28;
+    border-radius:1px;
+    padding:2px;
+    background:#6A6E73;
+
+    selection-background-color:#F8CE72;
+    selection-color:#000000;
+
+/*        combobox-popup: 0;*/
+}
+
+QComboBox:focus{
+        border:1px solid #F8CE72;
+}
+
+QComboBox:hover{
+    border:1px solid #F8CE72;
+}
+
+QComboBox::drop-down{
+    subcontrol-origin:padding;
+    subcontrol-position:top right;
+    width:15px;
+    padding:2px;
+}
+
+QComboBox::menu{
+        background:#F8CE72;
+}
+/*
+QComboBox QAbstractItemView::item{
+    min-height:20px;
+    min-width:10px;
+}
+*/
+/*=====================================================================*/
+/*QRadioButton*/
+/*=====================================================================*/
+QRadioButton::indicator{
+        /*background:transparent;*/
+}
+QRadioButton::indicator{
+    /*width:0.8em;*/
+    /*height:0.8em;*/
+}
+
+QRadioButton:disabled{
+    background-color: transparent;
+}
+
+/*=====================================================================*/
+/*QCheckBox*/
+/*=====================================================================*/
+QCheckBox{
+    /*background:transparent;*/
+}
+
+QCheckBox::indicator{
+    /*width:0.7em;*/
+    /*height:0.7em;*/
+    /*border:1px solid #242A28;*/
+}
+
+QCheckBox::indicator:hover{
+   /*border:1px solid #242A28;*/
+}
+
+/*=====================================================================*/
+/*QProgressBar*/
+/*=====================================================================*/
+QProgressBar{
+    max-height:20px;
+    max-width:300px;
+    border-radius:4px;
+    text-align:center;
+    border:1px solid #242A28;
+        background:#DDDDDD;
+        color:#000000;
+}
+
+QProgressBar:chunk{
+    border-radius:4px;
+    background-color:#FFB56B;
+}
+
+/*=====================================================================*/
+/*QSlider*/
+/*=====================================================================*/
+QSlider{
+
+}
+
+QSlider::groove:horizontal,
+QSlider::groove:vertical{
+    height:4px;
+    border-radius:4px;
+}
+
+QSlider::handle{
+    width:10px;
+    height:25px;
+    margin-top:-6px;
+    margin-bottom:-6px;
+    border-radius:1px;
+    background:#FFB56B;
+}
+
+QSlider::add-page:horizontal,
+QSlider::add-page:vertical{
+    background:#DDDDDD;
+    height:2px;
+    border-radius:2px;
+}
+
+QSlider::sub-page:horizontal,
+QSlider::sub-page:vertical{
+    background:#FFB56B;
+    height:4px;
+    border-radius:0px;
+}
+
+
+QSlider::handle:disabled,
+QSlider::sub-page:horizontal:disabled,
+QSlider::sub-page:vertical:disabled{
+    background:#DDDDDD;
+}
+
+/*=====================================================================*/
+/*Ë®ÆœQScrollBar*/
+/*=====================================================================*/
+QScrollBar:horizontal{
+        /*margin:0px 0px;*/ /*Áô¿ÕŒäžøÁœÍ·µÄÐ¡ŒýÍ·²¿Œþ*/
+    border-radius:4px;
+    max-height:16px;
+        background:#DDDDDD;
+}
+
+QScrollBar::handle:horizontal{
+    min-width:50px;
+    border-radius:4px;
+        background:#ADAEAF;
+}
+
+QScrollBar::handle:horizontal:hover{
+    background:#ADAEAF;
+}
+
+QScrollBar::handle:horizontal:pressed{
+    background:#F8CE72;
+}
+
+QScrollBar::add-page:horizontal{
+    background:none;
+}
+
+QScrollBar::sub-page:horizontal{
+    background:none;
+}
+
+QScrollBar::add-line:horizontal{
+    background:none;
+}
+
+QScrollBar::sub-line:horizontal{
+    background:none;
+}
+
+/*=====================================================================*/
+/*ÊúÖ±QScrollBar*/
+/*=====================================================================*/
+QScrollBar:vertical{
+        /*margin:0px 0px;*/ /*Áô¿ÕŒäžøÁœÍ·µÄÐ¡ŒýÍ·²¿Œþ*/
+    border-radius:4px;
+    max-width:12px;
+        background:#DDDDDD;
+}
+
+QScrollBar::handle:vertical{
+    min-height:50px;
+    border-radius:4px;
+        background:#ADAEAF;
+}
+
+QScrollBar::handle:vertical:hover{
+    background:#ADAEAF;
+}
+
+QScrollBar::handle:vertical:pressed{
+    background:#F8CE72;
+}
+
+QScrollBar::add-page:vertical{
+    background:none;
+}
+
+QScrollBar::sub-page:vertical{
+    background:none;
+}
+
+QScrollBar::add-line:vertical{
+    background:none;
+}
+
+QScrollBar::sub-line:vertical{
+    background:none;
+}
+
+/*=====================================================================*/
+/*QScrollArea*/
+/*=====================================================================*/
+QScrollArea{
+    border:0px;
+}
+
+/*=====================================================================*/
+/*QStatusBar*/
+/*=====================================================================*/
+QStatusBar{
+    background:#46494E;
+}
+
+QStatusBar::item{
+    /*border-left:1px solid #242A28;*/
+}
+
+/*=====================================================================*/
+/*QToolTip*/
+/*=====================================================================*/
+QToolTip{
+    border:0px solid #E5D475;
+    padding:1px;
+    color:#000000;
+    background:#FEFFAB;
+}
+
+/*=====================================================================*/
+/*QToolBox*/
+/*=====================================================================*/
+QToolBox{
+}
+
+QToolBox::tab{
+        border:1px solid #242A28;
+    background:#6A6E73;
+        color: #FFFFFF;
+}
+
+QToolBox::tab:selected{
+        color: #FEFFAB;
+}
+
+
+
+/*=====================================================================*/
+/*QTabWidget*/
+/*=====================================================================*/
+QTabWidget::tab-bar {
+    /* move to the right by 5px */
+/*    left: 6px; */
+
+}
+
+QTabWidget::pane{
+    border:1px solid #242A28;
+    selection-background-color:#F8CE72;
+    alternate-background-color:#F8CE72;
+    gridline-color:#F8CE72;
+}
+
+/*QTabWidget::pane:top{top:-1px;}
+QTabWidget::pane:bottom{bottom:-1px;}
+QTabWidget::pane:left{right:-1px;}
+QTabWidget::pane:right{left:-1px;}*/
+
+
+/*QTabWidget::tab:top{top:1px;}
+QTabWidget::tab:bottom{bottom:1px;}
+QTabWidget::tab:left{right:4px;}
+QTabWidget::tab:right{left:4px;}*/
+
+/*Note : use QTabBar _not_ QTabWidget */
+QTabBar::tab{
+        background:transparent;
+        margin:0px 4px;
+/*        min-width:100px;*/
+        padding:3px 8px 3px 8px;
+        /*
+    border: 1px solid #242A28;
+    border-bottom-color: #54575B;
+        border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+        min-width: 8ex;
+    padding: 2px;
+        */
+
+    border-radius:10px;
+}
+
+QTabBar::tab:hover {
+        background:#F99639;
+        color:#FFF;
+}
+QTabBar::tab:selected{
+        background:#DA6D07;
+        color:#FFF;
+        border-top-color:#E5D475;
+}
+
+
+/*×ÓÇé¿ö£º±êÇ©ÔÚÉÏÏÂÊ±*/
+QTabBar::tab:top,
+QTabBar::tab:bottom{
+    padding:3px 8px 3px 8px;
+}
+
+QTabBar::tab:top:selected,
+QTabBar::tab:top:hover{
+    border-width:2px 1px 0px 1px;
+}
+QTabBar::tab:bottom:selected,
+QTabBar::tab:bottom:hover{
+    border-width:0px 1px 2px 1px;
+}
+
+
+/*×ÓÇé¿ö£º±êÇ©ÔÚ×óÓÒÊ±*/
+QTabBar::tab:left,
+QTabBar::tab:right{
+    padding:8px 3px 8px 3px;
+}
+QTabBar::tab:left:selected,
+QTabBar::tab:left:hover{
+    border-width:1px 0px 1px 2px;
+}
+QTabBar::tab:right:selected,
+QTabBar::tab:right:hover{
+    border-width:1px 2px 1px 0px;
+}
+
+/*×Ó×ŽÌ¬*/
+QTabBar::tab:first:top:selected,
+QTabBar::tab:first:top:hover,
+QTabBar::tab:first:bottom:selected,
+QTabBar::tab:first:bottom:hover{
+    border-left-width:1px;
+    border-left-color:#E5D475;
+}
+QTabBar::tab:first:left:selected,
+QTabBar::tab:first:left:hover,
+QTabBar::tab:first:right:selected,
+QTabBar::tab:first:right:hover{
+    border-top-width:1px;
+    border-top-color:#E5D475;
+}
+QTabBar::tab:last:top:selected,
+QTabBar::tab:last:top:hover,
+QTabBar::tab:last:bottom:selected,
+QTabBar::tab:last:bottom:hover{
+    border-right-width:1px;
+    border-right-color:#E5D475;
+}
+QTabBar::tab:last:left:selected,
+QTabBar::tab:last:left:hover,
+QTabBar::tab:last:right:selected,
+QTabBar::tab:last:right:hover{
+    border-bottom-width:1px;
+    border-bottom-color:#E5D475;
+}
+
+
+/*=====================================================================*/
+/*QStatusBar*/
+/*=====================================================================*/
+QStatusBar{
+    background:#6A6E73;
+    border-radius:3px;
+}
+
+QStatusBar::item{
+    border:1px solid #242A28;
+    border-radius:3px;
+}
+
+/*=====================================================================*/
+/*QToolBar*/
+/*=====================================================================*/
+QToolBar{
+        border:1px solid #242A28;
+
+}
+QToolBar QToolButton{
+        background:transparent;
+    border:1px solid transparent;
+}
+
+/*=====================================================================*/
+/*项视图/
+/*=====================================================================*/
+QTreeView,
+QListView,
+QTableView{
+    background:#6A6E73;
+    show-decoration-selected:1;
+}
+
+QTableView::item,
+QListView::item,
+QTreeView::item{
+    /*color:#FFFFFF;
+    background:#6A6E73;*/
+    border:1px solid transparent;
+    padding:1px;
+    margin:0px;
+}
+
+QTableView::item:selected,
+QListView::item:selected,
+QTreeView::item:selected{
+    color:#000000;
+    background:#F8CE72;
+    border:1px solid transparent;
+}
+
+QTableView::item:hover,
+QListView::item:hover,
+QTreeView::item:hover{
+    color:#000000;
+    background:#F8CE72;
+    border:1px solid transparent;
+}
+
+QTableView::item:disabled,
+QListView::item:disabled,
+QTreeView::item:disabled{
+    color:#8D8D8D;/*多余的，由前面*统一设置*/
+}
+
+QListView,
+QTableView::pane{
+    border:1px solid #242A28;
+}
+
+QHeaderView{
+    border:0px solid #242A28;
+    color:#FFFFFF;
+    background:#DDDDDD;
+}
+
+QHeaderView::section,
+QTableCornerButton:section{
+    padding:3px;
+    margin:0px;
+    color:#000000;
+    background:#DDDDDD;
+    border:1px solid #242A28;
+}
+
+QTreeView
+{
+    alternate-background-color: transparent;
+}
+
+/*******************************************************
+ *
+ * 特殊情况处理
+ *
+ **************************************************************************/
+/*透明控件*/
+QWidget[QSSTransparent="true"]{
+    border:none;
+    background-color:transparent;
+}
+
+
+/*ribbon工具栏按钮*/
+QToolButton[RibbonButton="true"]{
+    color:#FFF;
+    background:transparent;
+    border:1px solid transparent;
+}
+
+/*ribbon工具栏面板*/
+QWidget[ribbonBox="true"]{
+    border:0px solid #000;
+    border-right: 1px solid #666;
+    border-radius:0px;
+    background:transparent;
+}
+
+/*ribbon工具栏面板标题*/
+QWidget[ribbonBox="true"] QLabel{
+    color: #AAA;
+    font-size:0.8em;
+}
+
+QWidget[ribbonArea="true"]{
+/*    min-height:4em;
+    max-height:4em;*/
+}
+
+QWidget[toolBarWidget="true"]{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+   /* background:#EAF7FF;*/
+}
+QWidget[visualToolbar="true"]{
+    margin: 0px;
+    border: 0px;
+    padding: 5px;
+    /*background:#EAF7FF;*/
+}
+QWidget[visualToolbar="true"] QToolButton{
+    border-style:none;
+    min-height:32px;
+    max-height:32px;
+    min-width:32px;
+    max-width:32px;
+    /*background:#EAF7FF;*/
+}
+QWidget[visualToolbar="true"] QToolButton::checked{
+    background-color:#FFB56B;
+}
+
+
+
+
+/* ÐÂœš×°ÖÃŽ°Ìå */
+QWidget[HomePageNewDeviceItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #000;
+    background:#ffe0b9;
+}
+/* ×°ÖÃŽ°Ìå */
+QWidget[HomePageDeviceItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #000;
+    background:#ffe0b9;
+
+/*    padding-left: 10px;
+    border-left:5px solid #FF9980;*/
+}
+
+/* ÐÂœšÊµÑéŽ°Ìå */
+QWidget[HomePageNewExpItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #000;
+    background:#ffe0b9;
+    color: black;
+}
+/* ÊÔÑéŽ°Ìå */
+QWidget[HomePageExprimentItem="true"]{
+    margin: 2px;
+    padding: 5px;
+    border-radius:8px;
+    border: 1px solid #000;
+    background:#ffe0b9;
+    color: black;
+}
+
+
+QWidget[HomePageNewDeviceItem="true"] QLabel,
+QWidget[HomePageDeviceItem="true"] QLabel,
+QWidget[HomePageNewExpItem="true"] QLabel,
+QWidget[HomePageExprimentItem="true"] QLabel{
+   color: #000;
+}
+
+
+
+/*
+QPushButton#standardButton{
+    color:#386487;
+    min-width:5em;
+    border-radius:1px;
+}
+*/
+
+QPushButton[qss="standardButton"]{
+    color:#386487;
+    min-width:5em;
+    border-radius:1px;
+}
+
+/* 新主页配色 */
+QLabel[qss="ListTitle"]{
+    font-family:SimHei;font-size:20px; color:white;
+}
+
+/* thumb型主页基本配色 */
+QWidget[shadowwidget="true"]{
+    color: #FFFFFF;
+    font-size: 200px;
+}
+
+/* 工具栏按钮配色 */
+QToolButton:disabled{
+    /*image: url(:/qss/resource/skin/disabled.png);*/
+    background-color: #222;
+    color: #CCCCCC;
+}
+
+/*QTreeView::item{
+    color:#FFFFFF;
+    background-color: transparent;
+}
+*/
+
+/* 图形区域的图标 */
+
+QToolButton[GraphicToolBarMove="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/move.png);
+}
+
+QToolButton[GraphicToolBarRefresh="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Refresh.png);
+}
+
+QToolButton[GraphicToolBarFit="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Fit.png);
+}
+
+QToolButton[GraphicToolBarView_Top="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Top.png);
+}
+
+QToolButton[GraphicToolBarView_Bottom="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Bottom.png);
+}
+
+QToolButton[GraphicToolBarView_Front="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Front.png);
+}
+
+QToolButton[GraphicToolBarView_Back="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Back.png);
+}
+
+QToolButton[GraphicToolBarView_Left="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Left.png);
+}
+
+QToolButton[GraphicToolBarView_Right="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View_Right.png);
+}
+
+QToolButton[GraphicToolBarView_Isometric="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Isometric.png);
+}
+
+QToolButton[GraphicToolBarOrtho_Perspective="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Ortho_Perspective.png);
+}
+
+QToolButton[GraphicToolBarSwitchFacebody="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/SwitchFaceBody.png);
+}
+
+QToolButton[GraphicToolBarZoom_In="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Zoom_In.png);
+}
+
+QToolButton[GraphicToolBarZoom_Out="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Zoom_Out.png);
+}
+
+QToolButton[GraphicToolBarZoom_rectangle="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Zoom_rectangle.png);
+}
+
+QToolButton[GraphicToolBarSetViewCenter="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/SetViewCenter.png);
+}
+
+QToolButton[GraphicToolBarLineout="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/LineOut.png);
+}
+
+QToolButton[GraphicToolBarClear_Object="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Clear_Object.png);
+}
+
+QToolButton[GraphicToolBarSelection_Tool="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Selection_Tool.png);
+}
+
+QToolButton[GraphicToolBarOperator="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Operator.png);
+}
+
+QToolButton[GraphicToolBarSaveImages="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/SaveImages.png);
+}
+
+QToolButton[GraphicToolBarGeometry_Option="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Geometry_Option.png);
+}
+
+QToolButton[GraphicToolBarMesh_Option="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Mesh_Option.png);
+}
+
+QToolButton[GraphicToolBarOption="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Option.png);
+}
+
+QToolButton[GraphicToolBarColortable="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Colortable.png);
+}
+
+QToolButton[GraphicToolBarView="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/View.png);
+}
+
+QToolButton[GraphicToolBarText_Label="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Text_Label.png);
+}
+
+QToolButton[GraphicToolBarPick_Point="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Point.png);
+}
+
+QToolButton[GraphicToolBarPick_Edge="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Edge.png);
+}
+
+QToolButton[GraphicToolBarPick_Face="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Face.png);
+}
+
+QToolButton[GraphicToolBarPick_Entity="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Entity.png);
+}
+
+QToolButton[GraphicToolBarPick_Node="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Node.png);
+}
+
+QToolButton[GraphicToolBarPick_Zone="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Zone.png);
+}
+
+QToolButton[GraphicToolBarPick_Tool="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Pick_Tool.png);
+}
+
+QToolButton[GraphicToolBarSelect_by_sphere="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Select_By_Sphere.png);
+}
+
+QToolButton[GraphicToolBarSpeed_Mode="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Speed_Mode.png);
+}
+
+QToolButton[GraphicToolBarShow_Grid="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Show_Grid.png);
+}
+
+QToolButton[GraphicToolBarExtremumMinLabel="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/ExtremumMinLabel.png);
+}
+
+QToolButton[GraphicToolBarExtremumMaxLabel="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/ExtremumMaxLabel.png);
+}
+
+QToolButton[GraphicToolBarRuler="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Ruler.png);
+}
+
+QToolButton[GraphicToolBarExtreme_Values="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Extreme_Values.png);
+}
+
+QToolButton[GraphicToolBarHight_Light="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Hight_Light.png);
+}
+
+QToolButton[GraphicToolBarLighting="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Lighting.png);
+}
+
+QToolButton[GraphicToolBarShadow="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Shadow.png);
+}
+
+QToolButton[GraphicToolBarViewport1="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Viewport_1.png);
+}
+
+QToolButton[GraphicToolBarViewport2="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Viewport_2.png);
+}
+
+QToolButton[GraphicToolBarViewport4="true"]{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/Graphic/Viewport_4.png);
+}
+
+/*信息输出区*/
+QToolButton[toolButtonClear_LogDelet="true"]{
+    image: url(:/qss/resource/skin/darkorange/Graphic/Log_Delet.png);
+}
+
+QToolButton[toolButtonDebug_LogDebug="true"]{
+    image: url(:/qss/resource/skin/darkorange/Graphic/Log-debug.png);
+}
+
+
+/*主页工具栏*/
+
+QToolButton[preFerence="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/preference.png);
+}
+
+QToolButton[plugins="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/plug.png);
+}
+
+QToolButton[about="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/about.png);
+}
+
+QToolButton[newPost="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/newpost.png);
+}
+
+QToolButton[open="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/open.png);
+}
+
+QToolButton[homesave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/save.png);
+}
+
+QToolButton[saveas="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/saveas.png);
+}
+
+QToolButton[homecloseProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/closeproject.png);
+}
+
+QToolButton[taskmanager="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/homepage/taskmanager.png);
+}
+
+/*建模页工具栏*/
+QToolButton[importgeom="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/importgeom.png);
+}
+
+QToolButton[exportgeom="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/exportgeom.png);
+}
+
+QToolButton[addentity="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/addentity.png);
+}
+
+QToolButton[removeentity="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/removeentity.png);
+}
+
+QToolButton[ModelPage_importAction="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/Import.png)
+}
+
+QToolButton[ModelPage_exportAction="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/Export.png)
+}
+
+QToolButton[ModelPage_save="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/save.png);
+}
+
+QToolButton[ModelPage_closeProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/modelpage/closeproject.png);
+}
+
+/*模拟页工具栏*/
+
+QToolButton[contact="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/contact.png);
+}
+
+QToolButton[remove="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/remove.png);
+}
+
+QToolButton[jobmanager="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/jobmanager.png);
+}
+
+QToolButton[exchange="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/exchange.png);
+}
+
+QToolButton[importitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/importitem.png);
+}
+
+QToolButton[exportitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/exportitem.png);
+}
+
+QToolButton[selectitem="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/selectitem.png);
+}
+
+QToolButton[addmesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/addmesh.png);
+}
+
+QToolButton[deletemesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/deletemesh.png);
+}
+
+QToolButton[check="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/check.png);
+}
+
+QToolButton[generatemesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/generatemesh.png);
+}
+
+QToolButton[exportmesh="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/exportmesh.png);
+}
+
+QToolButton[encryption="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/encryption.png);
+}
+
+QToolButton[meshin="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/meshin.png);
+}
+
+QToolButton[meshout="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/meshout.png);
+}
+
+QToolButton[runprocess="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/runprocess.png);
+}
+
+QToolButton[task="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/task.png);
+}
+
+QToolButton[jumpanalysis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/jumpanalysis.png);
+}
+
+QToolButton[import="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/import.png);
+}
+
+QToolButton[export="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/export.png);
+}
+
+QToolButton[SimulationPage_modelsave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/save.png);
+}
+
+QToolButton[SimulationPage_modelcloseProject="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/simulatepage/closeproject.png);
+}
+
+/*分析页工具栏*/
+
+QToolButton[AnalysisPage_ButtonOpenFile="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Open.png);
+}
+
+QToolButton[AnalysisPage_ButtonReOpenFile="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/ReOpen.png);
+}
+
+QToolButton[AnalysisPage_ButtonDBInfo="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/DatabseInfo.png);
+}
+
+QToolButton[AnalysisPage_ButtonDataExport="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/FileExport.png);
+}
+
+QToolButton[AnalysisPage_ButtonExportPreset="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Save.png);
+}
+
+QToolButton[AnalysisPage_ButtonAddVismode="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/AddFolder.png);
+}
+
+QToolButton[AnalysisPage_ButtonAddPlot="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Plot.png);
+}
+
+QToolButton[AnalysisPage_ButtonAddOperator="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Operator.png);
+}
+
+QToolButton[AnalysisPage_ButtonDelete="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Remove.png);
+}
+
+QToolButton[AnalysisPage_ButtonImportVis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Import.png);
+}
+
+QToolButton[AnalysisPage_ButtonExportVis="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Export.png);
+}
+
+QToolButton[AnalysisPage_ButtonExpression="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Expression.png);
+}
+
+QToolButton[AnalysisPage_ButtonQuery="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Query.png);
+}
+
+QToolButton[AnalysisPage_ButtonQueryAdvance="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/QueryAdvancedVis.png);
+}
+
+QToolButton[AnalysisPage_ButtonSave_Images="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/SaveImages.png);
+}
+
+QToolButton[AnalysisPage_ButtonSave="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Save.png);
+}
+
+QToolButton[AnalysisPage_ButtonQuit="true"]{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(:/qss/resource/skin/darkorange/analysisPage/Close.png);
+}
+
+
+/**/
+QPushButton#minimizeButton{
+    image: url(:/qss/resource/skin/lightblue/Min.png);
+    border-style:flat;
+    min-width:1.2em;
+    max-width:1.2em;
+}
+QPushButton#maximizeButton{
+    image: url(:/qss/resource/skin/lightblue/Max.png);
+    border-style:flat;
+    min-width:1.2em;
+    max-width:1.2em;
+}
+QPushButton#closeButton{
+    image: url(:/qss/resource/skin/lightblue/Close.png);
+    border-style:flat;
+    min-width:1.2em;
+    max-width:1.2em;
+}
+
