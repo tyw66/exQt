@@ -4,8 +4,9 @@
 #include <QWidget>
 #include <QComboBox>
 #include <QLabel>
-#include "skinwidget_global.h"
+#include <QSettings>
 
+#include "skinwidget_global.h"
 
 class SKINWIDGETSHARED_EXPORT SkinWidget : public QWidget
 {
@@ -16,25 +17,34 @@ public:
 
 private slots:
     //切换皮肤响应
-    void onSwitch(int index);
+    void onSwitch(int);
 
 
 private:
-    void initUI();
-    void initSkin();
+    ///初始化UI
+    inline void initUI();
+    ///初始化信号槽
+    inline void initConnect();
+    ///初始化皮肤
+    void initSkinItem();
 
+    ///读取qss内容
+    QString readStyleSheet(const QString& skinFilePath);
 
-    void appendSkin(const QString& skinName,
-                    const QString& skinFilePath,
-                    const QString& rccFilePath);
+    ///读取配置文件中的当前皮肤 位于"skin"关键字
+    void readSkin();
+    /// 向配置文件中的当前皮肤 位于"skin"关键字
+    void writeSkin();
 
+signals:
+    void skinChanged();
 
 private:
     QLabel* m_label;
     QComboBox* m_comboBox;
 
-    QList<QString> m_qssString;
 
+    QSettings* m_settings;
 };
 
 #endif // SKINWIDGET_H
