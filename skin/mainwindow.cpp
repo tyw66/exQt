@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QResource>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -28,6 +28,9 @@ void MainWindow::onSwitchStyleSheet(int index)
 
 void MainWindow::initSkin()
 {
+//    QResource::registerResource("./lightblue.rcc");
+    QResource::registerResource("./darkOrange.rcc");
+
     //添加1个空的
     m_qssString.push_back("");
     ui->comboBox_skin->addItem("No Skin!", "");
@@ -35,6 +38,7 @@ void MainWindow::initSkin()
     //添加内置的
     appendSkin(tr("LightBlue"),":/stylesheet/lightblue.qss");
     appendSkin(tr("DarkOrang"),":/stylesheet/darkOrange.qss");
+
 }
 
 void MainWindow::initIcon()
