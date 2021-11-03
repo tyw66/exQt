@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/stylesheet">
-        <file>darkOrange.qss</file>
+        <file>darkorange.qss</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="close_project.png">icons/close_project.png</file>

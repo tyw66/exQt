@@ -1,35 +1,7 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-CONFIG += c++11
-
-DESTDIR=$${PWD}/../../build/skinLib
-
-DEFINES += QT_DEPRECATED_WARNINGS
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
-SOURCES += \
-    main.cpp \
-    mainwindow.cpp
-
-HEADERS += \
-    mainwindow.h
-
-FORMS += \
-    mainwindow.ui
+TEMPLATE=subdirs
+CONFIG   += ordered
+SUBDIRS += skinlib example
 
 
 
-RESOURCES += \
-#    darkorange/darkorange.qrc \
-#    lightblue/lightblue.qrc
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
-#
-system(rcc --binary lightblue/lightblue.qrc -o $${DESTDIR}/lightblue.rcc)
-system(rcc --binary darkorange/darkorange.qrc -o $${DESTDIR}/darkorange.rcc)
