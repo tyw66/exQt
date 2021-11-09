@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/stylesheet">
+        <file>darkorange/darkorange.qss</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="close_project.png">darkorange/icons/close_project.png</file>
+        <file alias="save.png">darkorange/icons/save.png</file>
+    </qresource>
+</RCC>

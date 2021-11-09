@@ -14,14 +14,14 @@ SOURCES += \
 
 #每一套皮肤（QSS+图标）都是一个qrc
 RESOURCES += \
-    darkorange/darkorange.qrc \
-    lightblue/lightblue.qrc
+    darkorange.qrc \
+    lightblue.qrc
 
 
 #将qrc文件编译打包为rcc资源文件输出到build目录供程序切换皮肤使用
 system(cd $$DESTDIR && mkdir rcc)
-system(rcc --binary lightblue/lightblue.qrc -o $${DESTDIR}/rcc/lightblue.rcc)
-system(rcc --binary darkorange/darkorange.qrc -o $${DESTDIR}/rcc/darkorange.rcc)
+system(rcc --binary lightblue.qrc -o $${DESTDIR}/rcc/lightblue.rcc)
+system(rcc --binary darkorange.qrc -o $${DESTDIR}/rcc/darkorange.rcc)
 
 
 

@@ -19,11 +19,18 @@ SkinWidget::SkinWidget(QWidget *parent) : QWidget(parent)
 {
     m_settings = new QSettings(INIFILE_PATH,QSettings::IniFormat);
 
+    //重要：由于采用rcc动态加载图标与皮肤资源，而qrc文件在项目中
+    //如果不卸载的话，默认会一直加载第一个qrc中的图标
+    //卸载全部qrc资源
+    Q_CLEANUP_RESOURCE(darkorange);
+    Q_CLEANUP_RESOURCE(lightblue);
+
     initUI();
     initSkinItem();
 
     initConnect();
     readSkin();
+
 }
 
 void SkinWidget::initUI()
@@ -112,11 +119,11 @@ void SkinWidget::readSkin()
 
     //启动时动态加载RCC资源[只执行1次]
     QString rccFile = m_comboBox->currentData().toString();
-    QResource::registerResource(rccFile);
+    qDebug() << QResource::registerResource(rccFile);
 
     //加载QSS
     QString skinName = m_comboBox->currentText();
-    QString skinFilePath = QString(":/%1/%2.qss")
+    QString skinFilePath = QString(":/%1/%2/%2.qss")
             .arg(QRC_QSS_PREFIX).arg(skinName);
 
     qApp->setStyleSheet(readStyleSheet(skinFilePath));

@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/stylesheet">
+        <file>lightblue/lightblue.qss</file>
+        <file>lightblue/add_bottom.png</file>
+        <file>lightblue/add_left.png</file>
+        <file>lightblue/add_right.png</file>
+        <file>lightblue/add_top.png</file>
+        <file>lightblue/branch_clear.png</file>
+        <file>lightblue/branch_close.png</file>
+        <file>lightblue/branch_open.png</file>
+        <file>lightblue/branch_submit.png</file>
+        <file>lightblue/calendar_nextmonth.png</file>
+        <file>lightblue/calendar_prevmonth.png</file>
+        <file>lightblue/checkbox_checked.png</file>
+        <file>lightblue/checkbox_checked_disable.png</file>
+        <file>lightblue/checkbox_parcial.png</file>
+        <file>lightblue/checkbox_parcial_disable.png</file>
+        <file>lightblue/checkbox_unchecked.png</file>
+        <file>lightblue/checkbox_unchecked_disable.png</file>
+        <file>lightblue/close.png</file>
+        <file>lightblue/down.png</file>
+        <file>lightblue/max.png</file>
+        <file>lightblue/min.png</file>
+        <file>lightblue/progress.gif</file>
+        <file>lightblue/radiobutton_checked.png</file>
+        <file>lightblue/radiobutton_checked_disable.png</file>
+        <file>lightblue/radiobutton_unchecked.png</file>
+        <file>lightblue/radiobutton_unchecked_disable.png</file>
+        <file>lightblue/up.png</file>
+        <file>lightblue/waiting.gif</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="close_project.png">lightblue/icons/close_project.png</file>
+        <file alias="save.png">lightblue/icons/save.png</file>
+    </qresource>
+</RCC>
