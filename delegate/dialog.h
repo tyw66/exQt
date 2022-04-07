@@ -1,7 +1,10 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
+#include <QDialog>
+
 #include <QStyledItemDelegate>
+#include <QSpinBox>
 
 /**
  * @brief 数字框输入委托类
@@ -13,9 +16,6 @@ class SpinBoxDelegate : public QStyledItemDelegate
 public:
     SpinBoxDelegate(QObject *parent = 0) : QStyledItemDelegate(parent){}
 
-    /// ----------------------------
-    /// 实现虚函数
-    /// ----------------------------
     //返回一个组件，该组件会被作为用户编辑数据时使用的编辑器，从模型接受数据，返回用户修改的数据
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     //提供组件显示时需要的默认值
@@ -27,8 +27,6 @@ public:
 
 };
 
-
-#include <QDialog>
 namespace Ui {
 class Dialog;
 }

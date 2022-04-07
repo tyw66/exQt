@@ -1,31 +1,20 @@
 ##--------------------------------------------------------
-##学习Qt翻译
-##Create by tyw66
+##学习Qt项视图
+##Create by tyw66 at 2018-10-08
 ##--------------------------------------------------------
 QT       += core gui
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = tr
+TARGET = item
 TEMPLATE = app
-
-CONFIG(warn_on | c++11)
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    langwidget.cpp
+        widget.cpp \
+	mydelegate.cpp
 
 HEADERS += \
-        mainwindow.h \
-    langwidget.h
+        widget.h \
+	mydelegate.h
 
 FORMS += \
-        mainwindow.ui
-
-DESTDIR =$$PWD
-
-TRANSLATIONS +=  \
-	zh-cn.ts \
-	en-us.ts \
-	ja-jp.ts
+        widget.ui

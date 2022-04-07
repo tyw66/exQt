@@ -1,12 +1,12 @@
 ##--------------------------------------------------------
-##Qt委托
-##Create by tyw66 at 2020-05-07
+##复利计算器
+##Create by tyw66 at 2019-04-29
 ##--------------------------------------------------------
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = delegate
+TARGET = FinancialCalculator
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -20,12 +20,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS += \
-        dialog.h
 
 SOURCES += \
-        dialog.cpp
+        main.cpp \
+        mainwindow.cpp \
+#    moneyitem.cpp
 
+HEADERS += \
+        mainwindow.h \
+#    moneyitem.h
 
 FORMS += \
-        dialog.ui
+        mainwindow.ui
+
+DESTDIR = $${PWD}
+
+TRANSLATIONS += zh_cn.ts
