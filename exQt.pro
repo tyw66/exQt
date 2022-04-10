@@ -22,6 +22,7 @@ SUBDIRS += \
         justforfun \            #2022-03-20 桌面小工具
         ex_qmake \              #2022-04-07 学习QMake
         language  \             #2022-04-07 学习Qt实时翻译
+        ex_qsharedpointer \     #2022-04-10 Qt智能指针
 
 
 
