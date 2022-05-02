@@ -9,6 +9,18 @@ CONFIG -= app_bundle
 
 SOURCES += main.cpp
 
+CONFIG+=testcase
+
+#CONFIG += debug_and_release
+CONFIG += build_all#在两种模式中构建
+
+CONFIG(debug, debug|release) {
+  TARGET = debug_binary
+} else {
+  TARGET = release_binary
+}
+
+
 exists(main.cpp){
     message("main.cpp file found")
 }
@@ -17,8 +29,18 @@ win32:debug{
     CONFIG += console
 }
 
+message($$PWD)
+message($${PWD})
+message($$(PWD))
+message($PWD)
+message(${PWD})
+message($(PWD))
+message(-------------------)
+
 DESTDIR = $$(PWD)
 message(The project will be installed in $$DESTDIR)
+
+
 
 DESTDIR = $(PWD)
   message(The project will be installed in the value of PWD)
@@ -60,9 +82,11 @@ CONTACT = firstname:middlename:surname:phone
 stuff = main.cpp
 
 
-contains(stuff, $$SOURCES){
-  message(ok)
-}
+
+
+#contains(stuff, $$SOURCES){
+#  message(ok)
+#}
 
 
 

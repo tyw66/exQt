@@ -8,6 +8,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SUBDIRS += \
         data_serialize \        #Qt序列化和反序列化
         easy_notepad \          #简易文本编辑器
+    ex_dll \
         icon_edit \             #2017-07-21 ？？？
         model_view  \           #2018-10-08 学习Qt项视图
         ex_process\             #2019-04-06 学习Qt进程
