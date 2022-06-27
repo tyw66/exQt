@@ -89,4 +89,37 @@ stuff = main.cpp
 #}
 
 
+message(QMAKESPEC=$${QMAKESPEC})
+
+
+
+
+FILE =F:/qt/Qt5.14.2/Docs/Qt-5.14.2/qtxml.qch
+message($$basename(FILE))
+
+
+fileName = ../1.txt
+message($$clean_path($$fileName))
+
+#返回所有已定义的变量名的列表
+names = $$enumerate_vars()
+for(name,names){
+    message($$name)
+}
+
+message($${QT.charts.includes})
+#message($$prompt(123))
+
+
+#message($$files(E:\workshop\Code\*.txt))
+
+
+
+#message($$cat(E:/workshop/Code/1.txt,false))
+
+
+#message($$fromfile(../ex_process/ex_process.pro,SOURCES))
+
+
+
 
