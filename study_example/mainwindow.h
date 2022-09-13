@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "foo1.h"
-#include "foo2.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,34 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void onShowResult(QString);
-
-
-
-    void on_pushButton_1_clicked();
-    void on_pushButton_2_clicked();
-
-
-
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-signals:
-    void startIt();
+    void on_pushButton_clicked();
 
 private:
+    void maskMe();
     Ui::MainWindow *ui;
-
-    WorkerThread* m_stopWatch;
-
-    QThread* m_thread;
-    Foo2 foo;
-
+    static bool flag;
 };
-
-
-
-
-
 #endif // MAINWINDOW_H

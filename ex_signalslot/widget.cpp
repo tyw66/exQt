@@ -8,12 +8,18 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+//    connect(ui->pushButton_1, SIGNAL(clicked()),
+//            this, SLOT(onClick1()));
+    connect(ui->pushButton_2, SIGNAL(clicked()),
+            this, SLOT(onClick2()));
 
-    connect(&m_foo, SIGNAL(sigShowMessage()),
-            this, SLOT(onShowMessage()));
+    connect(ui->pushButton_1, "2clicked()",
+            this, "1onClick1()");
 
-//    connect(ui->pushButton, SIGNAL(clicked()),
-//            &m_foo, SIGNAL(sigShowMessage()));
+
+//    connect(&m_foo, SIGNAL(sigShowMessage()),
+//            this, SLOT(onShowMessage()));
+
 
 }
 
@@ -22,19 +28,33 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::onShowMessage()
+//void Widget::onShowMessage()
+//{
+////    QMessageBox::information(this, "message", "hello");
+//    qDebug() << "onShowMessage";
+//}
+
+
+void Widget::onClick1()
 {
-//    QMessageBox::information(this, "message", "hello");
-    qDebug() << "onShowMessage";
+    qDebug() << __FUNCTION__;
+//    m_foo.emitSig();
+
+    //
+//    qDebug() << "after";
 }
 
-
-void Widget::on_pushButton_clicked()
+void Widget::onClick2()
 {
-    //
-    qDebug() << "on_pushButton_clicked()";
-    m_foo.emitSig();
+    qDebug() << __FUNCTION__;
+}
 
-    //
-    qDebug() << "after";
+int Widget::getGrade() const
+{
+    return m_grade;
+}
+
+void Widget::setGrade(int value)
+{
+    m_grade = value;
 }

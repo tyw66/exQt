@@ -22,5 +22,5 @@ FORMS += \
     mainwindow.ui
 
 
-
+OTHER_FILES+=""
 

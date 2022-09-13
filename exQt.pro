@@ -24,8 +24,11 @@ SUBDIRS += \
 #        language  \             #2022-04-07 学习Qt实时翻译
 #        ex_qsharedpointer \     #2022-04-10 Qt智能指针
 #        ex_dll \                #2022-05-02 库链接库
-#   test
-            exThread \           #2022-06-27 学习Qt多线程的四种方法
+#        test
+#        LongTimeWork \
+#        exThread \              #2022-06-27 学习Qt多线程的四种方法
+         study_example\          #2022-09-10 学习Qt自带demo
+         ex_graphicView \        #2022-09-13 学习图像视图框架
 
 
 

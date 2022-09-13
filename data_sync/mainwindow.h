@@ -26,6 +26,9 @@ private slots:
     void onClickButtonA();  //调用公用模块发信号
     void onReactA(const QString &msg);  //槽函数响应
 
+signals:
+    void sigA(const QString& msg);
+
     //----组件B------------------------
 private:
     void initConnectB();

@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent)
     initConnectF();
 
     initConnect1();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::initConnectA()
 {
     connect(ui->pushButtonA, SIGNAL(clicked()),this,SLOT(onClickButtonA()));
+    connect(this,SIGNAL(sigA(QString)),SignalHub::inst(),SIGNAL(state1Changed(QString)));
     connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactA(QString)));
 }
 
@@ -36,7 +39,8 @@ void MainWindow::onClickButtonA()
 {
     qDebug() << __FUNCTION__;
     QString id = ui->textEditA->toPlainText();
-    SignalHub::inst()->emitState1Changed(id);//Qt4
+//    SignalHub::inst()->emitState1Changed(id);//Qt4
+    emit sigA(id);
     //    emit Common::inst()->state1Changed(id);//Qt5
 
 }

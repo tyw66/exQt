@@ -11,10 +11,16 @@ class WorkerThread : public QThread
 {
     Q_OBJECT
 public:
-    WorkerThread(QObject* parent = NULL): QThread(parent){};
+    WorkerThread(QObject* parent = NULL);
+    ~WorkerThread();
+
+
+    bool flag;
 
 private:
     void run() override;
+
+
 
 signals:
     void resultReady(const QString &s);

@@ -20,3 +20,5 @@ SOURCES += \
 RESOURCES += \
     $$PWD/src/easynotepad_src.qrc
 
+message($$INCLUDEPATH)
+message($$DEPENDPATH)
