@@ -27,10 +27,12 @@ SUBDIRS += \
 #        test
 #        LongTimeWork \
 #        exThread \              #2022-06-27 学习Qt多线程的四种方法
-         study_example\          #2022-09-10 学习Qt自带demo
-         ex_graphicView \        #2022-09-13 学习图像视图框架
-         ex_grahicView2 \
-         ex_painter2D \          #2022-09-20 学习2D绘图:鼠标贪食蛇
+#         study_example\          #2022-09-10 学习Qt自带demo
+#         ex_graphicView \        #2022-09-13 学习图像视图框架
+#         ex_grahicView2 \
+#         ex_painter2D \          #2022-09-20 学习2D绘图:鼠标贪食蛇
+    ProcessWatcher \            #2022-10-06 多任务并行
+
 
 
 
