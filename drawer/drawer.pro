@@ -16,27 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    form.cpp \
     main.cpp \
-    mainwindow.cpp \
-    progressbar.cpp
-#    progressmanager/futureprogress.cpp \
-#    progressmanager/progressbar.cpp \
-#    progressmanager/progressmanager.cpp \
-#    progressmanager/progressmanager_win.cpp \
-#    progressmanager/progressmanager_x11.cpp \
-#    progressmanager/progressview.cpp \
+    drawerwidget.cpp
 
 HEADERS += \
-    mainwindow.h \
-    progressbar.h
-#    progressmanager/futureprogress.h \
-#    progressmanager/progressbar.h \
-#    progressmanager/progressmanager.h \
-#    progressmanager/progressmanager_p.h \
-#    progressmanager/progressview.h \
+    drawerwidget.h \
+    form.h
 
 FORMS += \
-    mainwindow.ui
+    drawerwidget.ui \
+    form.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

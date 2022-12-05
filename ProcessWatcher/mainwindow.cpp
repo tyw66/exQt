@@ -4,6 +4,7 @@
 
 #include <QFutureWatcher>
 #include <QtConcurrent/QtConcurrentRun>
+#include <progressmanager/progressmanager.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,8 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    m_progressView = new ProgressView();
+    m_progressView = new ProgressBar();
     ui->processbarLayout->addWidget(m_progressView);
+
 }
 
 MainWindow::~MainWindow()
@@ -26,8 +28,12 @@ void MainWindow::on_pushButton_a_clicked()
     QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
     connect(watcher,SIGNAL(finished()),this,SLOT(postWorkA()));
     watcher->setFuture(QtConcurrent::run(this,&MainWindow::workA));
-
     m_progressView->addTask(watcher->future(),tr("Doing Work A..."));
+
+//    QFuture<void> task = QtConcurrent::run(this,&MainWindow::workA);
+
+//    Core::FutureProgress *progress =
+//        Core::ProgressManager::addTask(task, tr("Updating Locator Caches"));
 
 }
 
@@ -67,6 +73,8 @@ void MainWindow::workB()
     QThread::sleep(ui->spinBox->value());
     qDebug() << "finish work B";
 }
+
+
 
 
 

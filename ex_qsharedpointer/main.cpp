@@ -1,9 +1,10 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QSharedPointer>
+#include <QPointer>
 
 /*----------------定义数据类Plot----------------------*/
-class Plot {
+class Plot: public QObject {
 public:
     Plot() {qDebug()<<"Plot()";m_value=0;}
     virtual ~Plot(){qDebug()<<"~Plot()";}
@@ -164,12 +165,29 @@ void case08(){
 }
 
 
+///QPointer
+void case09(){
+//    Plot* plot = new Plot();
+    QPointer<Plot> p1 = QPointer<Plot>(new Plot());
+    QPointer<Plot> p2 = QPointer<Plot>(p1);
+    qDebug()<< p1.isNull();
+    qDebug()<< p2.isNull();
+
+//    delete plot;
+//    plot = NULL;
+
+    delete p1;
+
+    qDebug()<< p1.isNull();
+    qDebug()<< p2.isNull();
+}
+
 
 /*------------------主程序----------------------*/
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    case08();
+    case01();
 
 }
 

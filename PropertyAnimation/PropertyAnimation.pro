@@ -17,23 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
-    progressbar.cpp
-#    progressmanager/futureprogress.cpp \
-#    progressmanager/progressbar.cpp \
-#    progressmanager/progressmanager.cpp \
-#    progressmanager/progressmanager_win.cpp \
-#    progressmanager/progressmanager_x11.cpp \
-#    progressmanager/progressview.cpp \
+    mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h \
-    progressbar.h
-#    progressmanager/futureprogress.h \
-#    progressmanager/progressbar.h \
-#    progressmanager/progressmanager.h \
-#    progressmanager/progressmanager_p.h \
-#    progressmanager/progressview.h \
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui

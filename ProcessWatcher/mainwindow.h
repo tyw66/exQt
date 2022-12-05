@@ -5,7 +5,7 @@
 
 
 
-#include "progressview.h"
+#include "progressbar.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,11 +26,12 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    ProgressView* m_progressView;
+    ProgressBar* m_progressView;
 
     //长耗时工作
     void workA();
     void workB();
+
 
 
 
