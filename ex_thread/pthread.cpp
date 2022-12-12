@@ -1,6 +1,7 @@
 #include <iostream>
 #include "pthread.h"
 #include "stdio.h"
+#include "unistd.h"
 
 using namespace std;
 
@@ -23,9 +24,7 @@ void* callBack(void* arg){
     return NULL;
 }
 
-
-int main()
-{
+int main(){
     //准备创建线程
     pthread_t pID;
     Data data;
@@ -51,11 +50,6 @@ int main()
     Data* ret = (Data*)ptr;
 
     cout << "return value is " << ret->result << endl;
-
-
     pthread_exit(NULL);
-
-
-
     return 0;
 }
