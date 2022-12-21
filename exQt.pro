@@ -35,7 +35,7 @@ SUBDIRS += \
 #    AutoTest \
 #    drawer \
  \#    PropertyAnimation
-    ex_thread           #2022-12-01 Linux线程
+    ex_thread           #2022-12-01 posix线程
 
 
 
