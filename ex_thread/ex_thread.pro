@@ -7,8 +7,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-#        pthread.cpp \  #基本pthread
-#        mutex.cpp   \  #互斥锁
-#        rwlock.cpp  \  #读写锁
-        condition.cpp   \  #条件变量
+#        pthread.cpp \       #pthread基础
+#        mutex.cpp   \       #互斥锁
+#        rwlock.cpp  \       #读写锁
+#        condition.cpp   \   #条件变量
+        semaphore.cpp   \   #信号量
 
