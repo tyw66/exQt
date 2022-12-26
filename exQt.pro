@@ -34,10 +34,6 @@ SUBDIRS += \
 #    ProcessWatcher \            #2022-10-06 多任务并行
 #    AutoTest \
 #    drawer \
- \#    PropertyAnimation
-    ex_thread           #2022-12-01 posix线程
-
-
-
-
+#    PropertyAnimation\
+    ex_pthread           #2022-12-01 posix线程
 
