@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     initConnectD();
     initConnectE();
     initConnectF();
+    initConnectG();
+    initConnectH();
 
     initConnect1();
 
@@ -119,7 +121,7 @@ void MainWindow::onReactC(const QString &msg)
 void MainWindow::initConnectD()
 {
     //发
-    connect(ui->spinBox,SIGNAL(textChanged(QString)),this,SLOT(onChangeSpinBox(QString)));
+    connect(ui->spinBox,SIGNAL(valueChanged(QString)),this,SLOT(onChangeSpinBox(QString)));
     //收
     connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactD(QString)));
 }
@@ -197,6 +199,61 @@ void MainWindow::onReactF(const QString &msg)
     ui->toolBox->setCurrentIndex(index);
 
     ui->toolBox->blockSignals(blocked);
+}
+
+//--组件G--
+void MainWindow::initConnectG()
+{
+    //发
+    connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(onChangeSliderBar(int)));
+
+    //收
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactG(QString)));
+
+}
+
+void MainWindow::onChangeSliderBar(int index)
+{
+    qDebug() << __FUNCTION__;
+    SignalHub::inst()->emitState1Changed(QString::number(index));
+}
+
+void MainWindow::onReactG(const QString &msg)
+{
+    qDebug() << __FUNCTION__;
+    bool blocked = ui->horizontalSlider->blockSignals(true);
+
+    int index = msg.toInt();
+    ui->horizontalSlider->setValue(index);
+
+    ui->horizontalSlider->blockSignals(blocked);
+}
+
+void MainWindow::initConnectH()
+{
+    //发
+    connect(ui->dial,SIGNAL(valueChanged(int)),this,SLOT(onChangeDial(int)));
+
+    //收
+    connect(SignalHub::inst(),SIGNAL(state1Changed(QString)),this,SLOT(onReactH(QString)));
+
+}
+
+void MainWindow::onChangeDial(int index)
+{
+    qDebug() << __FUNCTION__;
+    SignalHub::inst()->emitState1Changed(QString::number(index));
+}
+
+void MainWindow::onReactH(const QString &msg)
+{
+    qDebug() << __FUNCTION__;
+    bool blocked = ui->dial->blockSignals(true);
+
+    int index = msg.toInt();
+    ui->dial->setValue(index);
+
+    ui->dial->blockSignals(blocked);
 }
 
 

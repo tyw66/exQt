@@ -57,13 +57,26 @@ private slots:
     void onChangeComboBox(const QString& value);
     void onReactE(const QString &msg);
 
-    //----组件E------------------------
+    //----组件F------------------------
 private:
     void initConnectF();
 private slots:
     void onChangeToolBox(int index);
     void onReactF(const QString &msg);
 
+    //----组件G------------------------
+private:
+    void initConnectG();
+private slots:
+    void onChangeSliderBar(int index);
+    void onReactG(const QString &msg);
+
+    //----组件H------------------------
+private:
+    void initConnectH();
+private slots:
+    void onChangeDial(int index);
+    void onReactH(const QString &msg);
 
     //----被动组件1------------------------
 private:
