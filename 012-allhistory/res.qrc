@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/data">
+        <file alias="China">data/china.txt</file>
+        <file alias="Japan">data/japan.txt</file>
+    </qresource>
+</RCC>

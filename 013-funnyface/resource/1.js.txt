@@ -1,0 +1,44 @@
+----------------------眼睛-------------------------------------------
+'use strict';
+
+let posx;
+let W=400;
+
+/**
+ * @param {Vec3} value - for property 'origin'
+ * @return {Vec3} - update current property value
+ */
+export function update(value) {
+	value.x = posx;
+	return value;
+}
+
+/**
+ * @param {ICursorEvent} event
+ */
+export function cursorMove(event) {
+	posx = event.worldPosition.x *360.0 / W;
+}
+
+//----------------------------------------------------------------------//
+'use strict';
+
+let degree=0;
+let H =500;
+
+/**
+ * @param {Vec3} value - for property 'angles'
+ * @return {Vec3} - update current property value
+ */
+export function update(value) {
+	value.z = degree;
+	return value;
+}
+
+/**
+ * @param {ICursorEvent} event
+ */
+export function cursorMove(event) {
+	degree = event.worldPosition.y * 360.0 / H;
+	console.log(degree);
+}
