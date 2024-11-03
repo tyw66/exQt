@@ -47,8 +47,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 
-
-
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if(m_playing){
@@ -62,6 +60,8 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         updateData(mousePt);
     }
 }
+
+
 
 void MainWindow::updateData(const QPointF& pos)
 {

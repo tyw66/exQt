@@ -4,11 +4,13 @@
 ##--------------------------------------------------------
 #定义源码文件
 set(SOURCES main.cpp
-    funnywidget.h funnywidget.cpp funnywidget.ui)
+    # funnywidget.h funnywidget.cpp funnywidget.ui
+    mainwindow.h mainwindow.cpp mainwindow.ui
+    funnyfaceview.h funnyfaceview.cpp
+    res.qrc)
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCES})
 
 #添加可执行程序
 add_executable(FunnyFace ${SOURCES})
 
-#TODO 将mainwindow部分添加进去
