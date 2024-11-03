@@ -4,7 +4,7 @@
 
 #include<QDebug>
 
-#include <langwidget.h>
+#include "./langwidget.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :

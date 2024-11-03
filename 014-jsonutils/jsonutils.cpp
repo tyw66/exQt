@@ -21,7 +21,7 @@ bool JsonUtils::writeToFile(QVariant &data, const QString &filePath, int precisi
 bool JsonUtils::read(std::string &jsonData, QVariant &data)
 {
     rapidjson::Document document;
-    if(document.ParseInsitu(jsonData.data()).HasParseError()){
+    if(document.ParseInsitu((char*)jsonData.data()).HasParseError()){
         qDebug() << errMsg(document.GetParseError());
         return false;
     }

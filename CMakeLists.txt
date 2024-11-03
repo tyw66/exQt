@@ -18,7 +18,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 #配置Qt
 include(./use_qt.cmake)
 
-#添加子项目
+#子项目
 add_subdirectory(001-data_sync)
 add_subdirectory(002-study_qsharedpointer)
 add_subdirectory(003-financial_calculator)
@@ -31,4 +31,11 @@ add_subdirectory(009-game_card_tuolaji)
 add_subdirectory(010-qss_designer)
 add_subdirectory(011-democal)
 add_subdirectory(012-allhistory)
-
+add_subdirectory(013-funnyface)
+add_subdirectory(014-jsonutils)
+add_subdirectory(015-qdatastream)
+add_subdirectory(016-study_modelview)
+add_subdirectory(017-game_mousesnake)
+add_subdirectory(018-switch_language)
+add_subdirectory(019-easy_notepad)
+add_subdirectory(020-thread_animation)
