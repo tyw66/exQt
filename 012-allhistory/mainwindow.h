@@ -25,9 +25,16 @@ private slots:
     void onTimeChanged(int year);
 
 private:
+    QString makeInfo(int year, const QVector<Dynasty>& vec);
+
+private:
     Ui::MainWindow *ui;
     QVector<Dynasty> m_dataChina;
     QVector<Dynasty> m_dataJapan;
+    QVector<Dynasty> m_dataYilang;
+    QVector<Dynasty> m_dataYidali;
+    QVector<Dynasty> m_datayinguo;
+    QVector<Dynasty> m_dataXila;
 
     void readData(const QString &filePath, QVector<Dynasty>& data);
 

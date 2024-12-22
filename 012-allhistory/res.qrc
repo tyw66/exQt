@@ -2,5 +2,9 @@
     <qresource prefix="/data">
         <file alias="China">data/china.txt</file>
         <file alias="Japan">data/japan.txt</file>
+        <file alias="Yilang">data/yilang.txt</file>
+        <file alias="Yinguo">data/england.txt</file>
+        <file alias="Yidali">data/italy.txt</file>
+        <file alias="Xila">data/greece.txt</file>
     </qresource>
 </RCC>

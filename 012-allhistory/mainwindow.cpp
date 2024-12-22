@@ -15,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     readData(":/data/China",m_dataChina);
     readData(":/data/Japan",m_dataJapan);
+    readData(":/data/Yilang",m_dataYilang);
+    readData(":/data/Yidali",m_dataYidali);
+    readData(":/data/Yinguo",m_datayinguo);
+    readData(":/data/Xila",m_dataXila);
 }
 
 MainWindow::~MainWindow()
@@ -50,24 +54,39 @@ void MainWindow::onTimeChanged(int year)
     ui->label_year->setText(QString::number(year));
 
     //中国
-    QString dyChina;
-    for(Dynasty& dy : m_dataChina) {
-        if(!(year < dy.begin || year > dy.end)){
-            dyChina.append(dy.name);
-            dyChina.append(" ");
-        }
-    }
-    //日本
-    QString dyJapan;
-    for(Dynasty& dy : m_dataJapan) {
-        if(!(year < dy.begin || year > dy.end)){
-            dyJapan.append(dy.name);
-            dyJapan.append(" ");
-        }
-    }
-
-    //
+    QString dyChina = makeInfo(year, m_dataChina);
     ui->label_china->setText(dyChina);
+
+    //日本
+    QString dyJapan = makeInfo(year, m_dataJapan);
     ui->label_japan->setText(dyJapan);
+
+    //伊朗
+    QString dyYilang = makeInfo(year, m_dataYilang);
+    ui->label_yilang->setText(dyYilang);
+
+    //意大利
+    QString dyYidali = makeInfo(year, m_dataYidali);
+    ui->label_italy->setText(dyYidali);
+
+    //英国
+    QString dyYinguo = makeInfo(year, m_datayinguo);
+    ui->label_england->setText(dyYinguo);
+
+    //希腊
+    QString dyXila = makeInfo(year, m_dataXila);;
+    ui->label_greece->setText(dyXila);
+}
+
+QString MainWindow::makeInfo(int year, const QVector<Dynasty> &vec)
+{
+    QString info;
+    for(const Dynasty& dy : vec) {
+        if(!(year < dy.begin || year > dy.end)){
+            info.append(dy.name);
+            info.append(" ");
+        }
+    }
+    return info;
 }
 
